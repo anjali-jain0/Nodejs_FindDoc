@@ -1,0 +1,16 @@
+#image
+{
+width:1370px;
+height:370px;
+position:absolute;
+top:10px;
+lefT:0px;
+}
+.list-group
+{
+margin-top:300px;
+}
+.list-group-item
+{
+text-align:center;
+}

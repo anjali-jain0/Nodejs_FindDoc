@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    body
+    {
+    	overflow:hidden;
+    	background-color:#eadfca;
+    }
+
+	#div1
+	{
+		width:310px;
+		height:460px;
+		position:absolute;
+		top:90px;
+		left:530px;
+		background-color:orange;
+		border-radius:3%;
+		transform:rotate(4deg);
+	}
+	#div2
+	{
+		width:310px;
+		height:460px;
+		position:absolute;
+		top:90px;
+		left:530px;
+		background-color:#eadfca;
+		transform:rotate(1deg);
+		border-radius:3%;
+		border:20px solid rgb(71, 104, 135);
+		cursor:pointer;
+	}
+	#circle
+	{
+		border-radius:50%;
+		position:absolute;
+		top:-380px;
+		left:-24px;
+		height:1450px;
+		width:1450px;
+		background-color:rgb(71, 104, 135);
+		opacity:0.5;
+		z-index:5;
+		transform:scale(0);
+	}
+	.cir
+	{
+		animation-name:cire;
+		animation-duration:1.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes cire
+	{
+		0%{transform:scale(0);opacity:0.5;}
+		100%{transform:scale(1.2);opacity:1;}
+	}
+	#left
+	{
+		width:540px;
+		height:750px;
+		position:absolute;
+		top:0px;
+		left:0px;
+		border:1px solid #eadfca;
+		
+	}
+	#right
+	{
+		width:360px;
+		height:750px;
+		position:absolute;
+		top:0px;
+		left:1250px;
+		border:1px solid #eadfca;
+		z-index:-99;
+	}
+	#take
+	{
+	   font-size:60px;
+	   font-family:verdana;
+	   position:absolute;
+	   top:150px;
+	   left:150px;
+	   color:blue;
+	}
+    #leave
+   	{
+	   font-size:60px;
+	   font-family:verdana;
+	   position:absolute;
+	   top:150px;
+	   left:1000px;
+	   text-decoration:none;
+	   color:blue;
+	}
+    #line1
+    {
+    	width:0px;
+    	border:1px solid black;
+    	position:fixed;
+    	top:250px;
+    	left:1000px;
+    }
+    #line2
+    {
+    	width:0px;
+    	border:1px solid black;
+    	position:fixed;
+    	top:250px;
+    	left:150px;
+    }
+    .leavetr
+    {
+        animation-name:tr1;
+    	animation-duration:1s;
+    }
+    @keyframes tr1{
+    	0%{left:1000px;}
+    	100%{left:1120px;}
+    }
+    .taketr
+    {
+    	animation-name:tr2;
+    	animation-duration:2s;
+    	
+    }
+    @keyframes tr2{
+    	0%{left:150px;}
+    	100%{left:50px;}
+    }
+    .wid
+    {
+    	animation-name:grow;
+    	animation-duration:2s;
+    }
+    @keyframes grow{
+    	0%{width:0px;}
+    	100%{width:250px;}
+    }
+    #cirp
+    {
+    	position:absolute;
+    	top:500px;
+    	left:400px;
+    	font-size:60px;
+    }
+</style>
+</head>
+<body>
+	<div id="line1"></div>
+	<div id="line2"></div>
+	<p id="take">Take It</p>
+	<p id="leave">Leave It</p>
+	<div onclick="remove()" id="circle"><p id="cirp">here is the text</p></div>
+	<div ondragover="f2r(event)" ondrop="f3r(event)" id="right"></div>
+	<div ondragover="f2l(event)" ondrop="f3l(event)" id="left"></div>
+	<div  draggable="true" ondragstart="f1(event)"  id='div1'></div>
+	<div draggable="true" ondragstart="f1(event)" id='div2'></div>
+</body>
+<script>
+	function remove()
+	{
+		document.getElementById('circle').style.display="none";
+	}
+	function f1(e)
+		{
+		  e.dataTransfer.setData("text",e.target.id);	
+		}
+	function f2l(e)
+		{
+		  e.preventDefault();
+		    document.getElementById('take').className="taketr";
+		  document.getElementById('line1').className="wid";
+
+		}
+	function f2r(e)
+		{
+		  e.preventDefault();
+		  document.getElementById('leave').className="leavetr";;
+		  document.getElementById('line2').className="wid";
+		}
+	function f3l(e)
+		{
+		  e.preventDefault();
+		  var data=e.dataTransfer.getData("text");
+		  document.getElementById(data).style.top="100";
+		  document.getElementById(data).style.left="0";
+		  e.target.appendChild(document.getElementById(data));
+		  document.getElementById(data).style.opacity="0";
+		    document.getElementById('circle').className="cir";
+		    document.getElementById('take').style.color="orange";
+		    document.getElementById('leave').style.color="orange";
+		}
+	function f3r(e)
+		{
+		  e.preventDefault();
+		  var data=e.dataTransfer.getData("text");
+		  document.getElementById(data).style.top="100";
+		  document.getElementById(data).style.left="0";
+		  e.target.appendChild(document.getElementById(data));
+		  document.getElementById(data).style.opacity="0";
+		  document.getElementById('take').style.color="orange";
+		  document.getElementById('leave').style.color="orange";
+		}	
+</script>
+</html>

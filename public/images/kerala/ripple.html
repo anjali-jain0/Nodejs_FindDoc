@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0;
+	}
+	#canvas1
+	{
+		border:1px solid black;
+	}
+</style>
+</head>
+<body>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.99;
+	c.height=window.innerHeight*0.985;
+
+	var mouse={x:10,y:10};
+	window.addEventListener("mousemove",
+		  function(event)
+		{
+		  mouse.x=event.x;
+		  mouse.y=event.y;
+        });
+    
+    function Particle(x,y,r,dx,dy,ct,color,cx,cy)
+	  {
+		this.x=x;
+		this.y=y;
+		this.r=r;
+		this.dx=dx;
+		this.dy=dy;
+		this.ct=ct;
+	    this.color=color;
+	    this.cx=cx;
+	    this.cy=cy;
+		this.draw=function()
+		{
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+			ctx.fillStyle=this.color;
+			ctx.fill();
+		}
+		this.update=function()
+		{
+			this.draw();
+			this.x+=this.dx;
+			this.y+=this.dy;
+		}
+	  }
+
+    var array=[];var x=90;var y=70;var dx=0;var dy=0;
+	for(var i=0;i<5980;i++)
+	 {
+	 	x+=10;
+        if(x>=1250)
+        {
+        	x=100;
+        	y+=10;
+        }
+        var r=2;
+        var color="lightgrey";
+        dx=0;
+        dy=0;
+        array.push(new Particle(x,y,r,dx,dy,1,color,x,y));
+
+	 }
+
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+
+        for(var j=0;j<array.length;j++)
+        {
+        	array[j].update();
+        	if(mouse.x>c.width/2)
+        	{
+        		if(array[j].x<=array[j].cx+40)
+        		array[j].dx=2;
+        	    else
+        	    array[j].dx=0;	
+        	}
+        	if(mouse.x<=c.width/2)
+        	{
+        		if(array[j].x>=array[j].cx-40)
+        		array[j].dx=-2;
+        	    else
+        	    array[j].dx=0;
+            }
+            if(mouse.y>c.height/2)
+        	{
+        		if(array[j].y<=array[j].cy+15)
+        		array[j].dy=2;
+        	    else
+        	    array[j].dy=0;	
+        	}
+        	if(mouse.y<=c.height/2)
+        	{
+        		if(array[j].y>=array[j].cy-15)
+        		array[j].dy=-2;
+        	    else
+        	    array[j].dy=0;
+            }
+	    }   
+    }
+
+animate();
+</script>
+</html>

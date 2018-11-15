@@ -1,0 +1,156 @@
+body
+	{
+		margin:0px;
+	}
+
+	#main
+   {
+   	width:1350px;
+   	height:640px;
+   	position:absolute;
+   	top:0px;
+   	left:-1360px;
+   	z-index:200;
+   	filter:brightness(0.8) contrast(0.8) saturate(0.6);
+   }
+    #contain
+    {
+    	width:600px;
+    	height:600px;
+    	position:absolute;
+    	top:40px;
+    	left:380px;
+    	background-color:transparent;
+    	transform:rotate(0deg);
+    	z-index:201;
+    	display:none;
+    }
+	#img
+	{
+		width:500px;
+		height:500px;
+		border-radius:50%;
+		border:2px dashed black;
+		position:absolute;
+		top:40px;
+		left:40px;
+		z-index:201;
+	}
+	h1
+	{
+		text-align:center;
+	}
+	.rotate
+    {
+    	animation-name:rotate;
+		animation-duration:2.2s;
+    }
+	@keyframes rotate{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(18deg);}
+		100%{transform:rotate(0deg);}
+	}
+	.rotate2
+	{
+		animation-name:rotate2;
+		animation-duration:2.2s;
+	}
+	@keyframes rotate2{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(-18deg);}
+		100%{transform:rotate(0deg);}
+	}
+	#m1
+	{
+		font-size:25px;
+		position:absolute;
+		top:50px;
+		left:10px;
+		transform:scale(1) rotate(50deg);
+		z-index:201;
+	}
+	#m2
+	{
+		font-size:25px;
+		position:absolute;
+		top:200px;
+		left:-70px;
+		z-index:201;
+	}
+    #m1:hover
+    {
+    	animation-name:scale;
+    	animation-duration:1s;
+    }
+  
+    @keyframes scale{
+    	0%{transform:scale(1) rotate(50deg);}
+    	100%{transform:scale(1.6) rotate(50deg);}
+    }
+	.cont
+    {
+    	height:800px;
+    	width:350px;
+    	margin-top:-150px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    	background-color:transparent;
+    	transition-duration:2s;
+     }
+     @keyframes egmain{
+
+        0%{opacity:0.2;}
+        25%{opacity:0.4;}
+        50%{opacity:0.6;}
+        75%{opacity:0.8;}
+        100%{opacity:1;}
+
+     }
+    .img1s
+    {
+    	height:800px;
+    	width:350px;
+    	margin-top:-10px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+     .img1sl
+    {
+    	opacity:0;
+    	height:800px;
+    	width:350px;
+    	margin-top:-825px;
+        animation-name:egmain;
+        animation-delay:2s;
+        animation-duration:4s;
+        animation-fill-mode:forwards;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+    #nav
+    {
+    	font-size:30px;
+    	cursor:pointer;
+    	z-index:200;
+    	position:fixed;
+    	top:30px;
+    	left:30px;
+    }
+    .navbar
+    {
+    	animation-name:come;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes come
+    {
+    	0%{left:-1360px;}
+    	100%{left:0px;}
+    }
+    #cross
+    {
+    	position:absolute;
+    	top:30px;
+    	right:20px;
+    	z-index:201;
+    	display:none;
+    	font-size:30px;
+    	cursor:pointer;
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0px;
+		background-image:url('main2.jpg');
+		background-size:cover;
+		background-repeat:no-repeat;
+	}
+	#canvas1
+	{
+		border:1px solid black;
+	}
+ 	.maindiv
+ 	{
+ 		width:400px;
+ 		height:400px;
+ 		border-radius:50%;
+ 		background-color:lightgrey;
+ 		position:absolute;
+ 		top:150px;
+ 		left:400px;
+ 		z-index:-2;
+ 	}
+ 	#p1
+ 	{
+ 		position:absolute;
+ 		top:280px;
+ 		left:520px;
+ 		font-size:40px;
+ 		font-family:verdana;
+    }
+ 	#div1
+ 	{
+ 		width:200px;
+ 		height:200px;
+ 		border-radius:50%;
+ 		background-color:yellow;
+ 		position:absolute;
+ 		top:250px;
+ 		left:480px;
+ 		display:none;
+ 		z-index:-1;
+ 	}
+ 	.container:hover #div1
+ 	{
+ 		display:block;
+ 	}
+</style>
+</head>
+<body>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+	<div class="container">
+	<p id="p1">Kerala</p>
+	<div id="div1"></div>
+    </div>
+    <div class="maindiv"></div>
+</body>
+<script>
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.995;
+	c.height=window.innerHeight*0.975;
+
+	function Ball(x,y,r,dy,color)
+  {
+	this.x=x;
+	this.y=y;
+	this.r=r;
+	this.dy=dy;
+    this.color=color;
+	this.draw=function()
+	{
+		ctx.beginPath();
+		ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+		ctx.fillStyle=this.color;
+		ctx.fill();
+	}
+	this.update=function()
+	{
+		this.draw();
+		this.y+=this.dy;
+		if(this.y>=100)
+			this.dy=0;
+	}
+  }
+var array=[];var x=270;var y=-100;
+for(var i=0;i<7;i++)
+{
+	x+=100;
+	y-=20;
+	var r=30;
+	var dy=2;
+	var color='orange';
+	array.push(new Ball(x,y,r,dy,color));
+}
+function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        for(var j=0;j<array.length;j++)
+        {
+        	array[j].update();
+        }
+
+    }
+animate();
+</script>
+</html>

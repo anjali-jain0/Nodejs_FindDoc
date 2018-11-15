@@ -1,0 +1,837 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/animate.css" />
+<link rel="stylesheet" href="assets/css/hover-min.css">
+<link rel="stylesheet"  href="assets/css/datepicker.css" >
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/owl.theme.default.min.css"/>
+<link rel="stylesheet" href="assets/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/css/bootsnav.css"/>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/responsive.css" />
+<style>
+	body
+	{
+		margin:0px;
+	}
+
+	#main
+   {
+   	width:1350px;
+   	height:640px;
+   	position:absolute;
+   	top:0px;
+   	left:-1360px;
+   	z-index:200;
+   	filter:brightness(0.8) contrast(0.8) saturate(0.6);
+   }
+    #contain
+    {
+    	width:600px;
+    	height:600px;
+    	position:absolute;
+    	top:40px;
+    	left:380px;
+    	background-color:transparent;
+    	transform:rotate(0deg);
+    	z-index:201;
+    	display:none;
+    }
+	#img
+	{
+		width:500px;
+		height:500px;
+		border-radius:50%;
+		border:2px dashed black;
+		position:absolute;
+		top:40px;
+		left:40px;
+		z-index:201;
+	}
+	h1
+	{
+		text-align:center;
+	}
+	.rotate
+    {
+    	animation-name:rotate;
+		animation-duration:2.2s;
+    }
+	@keyframes rotate{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(18deg);}
+		100%{transform:rotate(0deg);}
+	}
+	.rotate2
+	{
+		animation-name:rotate2;
+		animation-duration:2.2s;
+	}
+	@keyframes rotate2{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(-18deg);}
+		100%{transform:rotate(0deg);}
+	}
+	#m1
+	{
+		font-size:25px;
+		position:absolute;
+		top:50px;
+		left:10px;
+		transform:scale(1) rotate(50deg);
+		z-index:201;
+	}
+	#m2
+	{
+		font-size:25px;
+		position:absolute;
+		top:200px;
+		left:-70px;
+		z-index:201;
+	}
+    #m1:hover
+    {
+    	animation-name:scale;
+    	animation-duration:1s;
+    }
+  
+    @keyframes scale{
+    	0%{transform:scale(1) rotate(50deg);}
+    	100%{transform:scale(1.6) rotate(50deg);}
+    }
+	.cont
+    {
+    	height:800px;
+    	width:350px;
+    	margin-top:-150px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    	background-color:transparent;
+    	transition-duration:2s;
+     }
+     @keyframes egmain{
+
+        0%{opacity:0.2;}
+        25%{opacity:0.4;}
+        50%{opacity:0.6;}
+        75%{opacity:0.8;}
+        100%{opacity:1;}
+
+     }
+    .img1s
+    {
+    	height:800px;
+    	width:350px;
+    	margin-top:-10px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+     .img1sl
+    {
+    	opacity:0;
+    	height:800px;
+    	width:350px;
+    	margin-top:-825px;
+        animation-name:egmain;
+        animation-delay:2s;
+        animation-duration:4s;
+        animation-fill-mode:forwards;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+    #nav
+    {
+    	font-size:30px;
+    	cursor:pointer;
+    	z-index:200;
+    	position:fixed;
+    	top:30px;
+    	left:30px;
+    }
+    .navbar
+    {
+    	animation-name:come;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes come
+    {
+    	0%{left:-1360px;}
+    	100%{left:0px;}
+    }
+    #cross
+    {
+    	position:absolute;
+    	top:30px;
+    	right:20px;
+    	z-index:201;
+    	display:none;
+    	font-size:30px;
+    	cursor:pointer;
+    }
+ 
+</style>
+<body>
+ 	<div id="nav" onclick="navshow()">&#9776;Open</div>
+ 	<div id="cross" onclick='navclose()'>&times;</div>
+ 	<div>
+    <img src='1.gif' id="main">
+    <div id="contain">
+    <div id="img"></div>
+	<p id="m1">Menu 1 --</p>
+	<p id="m2">Menu 2 --</p>
+	</div>
+</div>
+
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i1.jpg" alt="img">
+				<img class="img1sl" src="i2.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i6.jpg" alt="img">
+                <img class="img1sl" src="i4.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i3.jpg" alt="img">
+                <img class="img1sl" src="i9.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s"  src="i4.jpg" alt="img">
+                <img class="img1sl" src="i1.jpg" alt="img">
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<section id="home" class="about-us">
+			<div class="container">
+				<div class="about-us-content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="single-about-us">
+								<div class="about-us-txt">
+									<h2>
+										Explore the Beauty of the Beautiful World 
+
+									</h2>
+									<div class="about-btn">
+										<button  class="about-view">
+											explore now
+										</button>
+									</div>
+								</div>
+							</div>
+						</div><!--/.col-->
+						<div class="col-sm-0">
+							<div class="single-about-us">
+								
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.about-us-content-->
+			</div><!--/.container-->
+
+		</section><!--/.about-us-->
+		<!--about-us end -->
+
+		<section  class="travel-box">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-md-12">
+        				<div class="single-travel-boxes">
+        					<div id="desc-tabs" class="desc-tabs">
+
+								<ul class="nav nav-tabs" role="tablist">
+
+									<li role="presentation" class="active">
+									 	<a href="#tours" aria-controls="tours" role="tab" data-toggle="tab">
+									 		<i class="fa fa-tree"></i>
+									 		tours
+									 	</a>
+									</li>
+
+									<li role="presentation">
+										<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">
+											<i class="fa fa-building"></i>
+											hotels
+										</a>
+									</li>
+
+									<li role="presentation">
+									 	<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">
+									 		<i class="fa fa-plane"></i>
+									 		flights
+									 	</a>
+									</li>
+								</ul>
+
+								<!-- Tab panes -->
+								<div class="tab-content">
+
+									<div role="tabpanel" class="tab-pane active fade in" id="tours">
+										<div class="tab-para">
+
+											<div class="row">
+												<div class="col-lg-4 col-md-4 col-sm-12">
+													<div class="single-tab-select-box">
+
+														<h2>destination</h2>
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your destination country</option><!-- /.option-->
+
+															  	<option value="turkey">turkey</option><!-- /.option-->
+
+															  	<option value="russia">russia</option><!-- /.option-->
+															  	<option value="egept">egypt</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your destination location</option><!-- /.option-->
+
+															  	<option value="istambul">istambul</option><!-- /.option-->
+
+															  	<option value="mosko">mosko</option><!-- /.option-->
+															  	<option value="cairo">cairo</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>check in</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>check out</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>duration</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">5</option><!-- /.option-->
+
+															  	<option value="10">10</option><!-- /.option-->
+
+															  	<option value="15">15</option><!-- /.option-->
+															  	<option value="20">20</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>members</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">1</option><!-- /.option-->
+
+															  	<option value="2">2</option><!-- /.option-->
+
+															  	<option value="4">4</option><!-- /.option-->
+															  	<option value="8">8</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+											</div><!--/.row-->
+
+											<div class="row">
+												<div class="col-sm-5">
+													<div class="travel-budget">
+														<div class="row">
+															<div class="col-md-3 col-sm-4">
+																<h3>budget : </h3>
+															</div><!--/.col-->
+															<div class="co-md-9 col-sm-8">
+																<div class="travel-filter">
+																	<div class="info_widget">
+																		<div class="price_filter">
+																			
+																			<div id="slider-range"></div><!--/.slider-range-->
+
+																			<div class="price_slider_amount">
+																				<input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+																			</div><!--/.price_slider_amount-->
+																		</div><!--/.price-filter-->
+																	</div><!--/.info_widget-->
+																</div><!--/.travel-filter-->
+															</div><!--/.col-->
+														</div><!--/.row-->
+													</div><!--/.travel-budget-->
+												</div><!--/.col-->
+												<div class="clo-sm-7">
+													<div class="about-btn travel-mrt-0 pull-right">
+														<button  class="about-view travel-btn">
+															search	
+														</button><!--/.travel-btn-->
+													</div><!--/.about-btn-->
+												</div><!--/.col-->
+
+											</div><!--/.row-->
+
+										</div><!--/.tab-para-->
+
+									</div><!--/.tabpannel-->
+
+									<div role="tabpanel" class="tab-pane fade in" id="hotels">
+										<div class="tab-para">
+
+											<div class="row">
+												<div class="col-lg-4 col-md-4 col-sm-12">
+													<div class="single-tab-select-box">
+
+														<h2>destination</h2>
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your destination country</option><!-- /.option-->
+
+															  	<option value="turkey">turkey</option><!-- /.option-->
+
+															  	<option value="russia">russia</option><!-- /.option-->
+															  	<option value="egept">egypt</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your destination location</option><!-- /.option-->
+
+															  	<option value="istambul">istambul</option><!-- /.option-->
+
+															  	<option value="mosko">mosko</option><!-- /.option-->
+															  	<option value="cairo">cairo</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>check in</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>check out</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>duration</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">5</option><!-- /.option-->
+
+															  	<option value="10">10</option><!-- /.option-->
+
+															  	<option value="15">15</option><!-- /.option-->
+															  	<option value="20">20</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>members</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">1</option><!-- /.option-->
+
+															  	<option value="2">2</option><!-- /.option-->
+
+															  	<option value="4">4</option><!-- /.option-->
+															  	<option value="8">8</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+											</div><!--/.row-->
+
+											<div class="row">
+												<div class="col-sm-5"></div><!--/.col-->
+												<div class="clo-sm-7">
+													<div class="about-btn travel-mrt-0 pull-right">
+														<button  class="about-view travel-btn">
+															search	
+														</button><!--/.travel-btn-->
+													</div><!--/.about-btn-->
+												</div><!--/.col-->
+
+											</div><!--/.row-->
+
+										</div><!--/.tab-para-->
+
+									</div><!--/.tabpannel-->
+
+									<div role="tabpanel" class="tab-pane fade in" id="flights">
+										<div class="tab-para">
+											<div class="trip-circle">
+												<div class="single-trip-circle">
+													<input type="radio" id="radio01" name="radio" />
+  													<label for="radio01">
+  														<span class="round-boarder">
+  															<span class="round-boarder1"></span>
+  														</span>round trip
+  													</label>
+												</div><!--/.single-trip-circle-->
+												<div class="single-trip-circle">
+													<input type="radio" id="radio02" name="radio" />
+  													<label for="radio02">
+  														<span class="round-boarder">
+  															<span class="round-boarder1"></span>
+  														</span>on way
+  													</label>
+												</div><!--/.single-trip-circle-->
+											</div><!--/.trip-circle-->
+											<div class="row">
+												<div class="col-lg-4 col-md-4 col-sm-12">
+													<div class="single-tab-select-box">
+
+														<h2>from</h2>
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your location</option><!-- /.option-->
+
+															  	<option value="turkey">turkey</option><!-- /.option-->
+
+															  	<option value="russia">russia</option><!-- /.option-->
+															  	<option value="egept">egypt</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>departure</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="departure" class="form-control" data-toggle="datepicker"
+																placeholder="12 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>return</h2>
+														<div class="travel-check-icon">
+															<form action="#">
+																<input type="text" name="return" class="form-control" data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+															</form>
+														</div><!-- /.travel-check-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>adults</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">5</option><!-- /.option-->
+
+															  	<option value="10">10</option><!-- /.option-->
+
+															  	<option value="15">15</option><!-- /.option-->
+															  	<option value="20">20</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+												<div class="col-lg-2 col-md-1 col-sm-4">
+													<div class="single-tab-select-box">
+														<h2>childs</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">1</option><!-- /.option-->
+
+															  	<option value="2">2</option><!-- /.option-->
+
+															  	<option value="4">4</option><!-- /.option-->
+															  	<option value="8">8</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+
+											</div><!--/.row-->
+
+											<div class="row">
+												<div class="col-lg-4 col-md-4 col-sm-12">
+													<div class="single-tab-select-box">
+
+														<h2>to</h2>
+
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter your destination location</option><!-- /.option-->
+
+															  	<option value="istambul">istambul</option><!-- /.option-->
+
+															  	<option value="mosko">mosko</option><!-- /.option-->
+															  	<option value="cairo">cairo</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+												<div class="col-lg-3 col-md-3 col-sm-4">
+													<div class="single-tab-select-box">
+
+														<h2>class</h2>
+														<div class="travel-select-icon">
+															<select class="form-control ">
+
+															  	<option value="default">enter class</option><!-- /.option-->
+															  	<option value="A">A</option><!-- /.option-->
+
+															  	<option value="B">B</option><!-- /.option-->
+															  	<option value="C">C</option><!-- /.option-->
+
+															</select><!-- /.select-->
+														</div><!-- /.travel-select-icon -->
+													</div><!--/.single-tab-select-box-->
+												</div><!--/.col-->
+												<div class="clo-sm-5">
+													<div class="about-btn pull-right">
+														<button  class="about-view travel-btn">
+															search	
+														</button><!--/.travel-btn-->
+													</div><!--/.about-btn-->
+												</div><!--/.col-->
+												
+											</div><!--/.row-->
+
+										</div>
+
+									</div><!--/.tabpannel-->
+
+								</div><!--/.tab content-->
+							</div><!--/.desc-tabs-->
+        				</div><!--/.single-travel-box-->
+        			</div><!--/.col-->
+        		</div><!--/.row-->
+        	</div><!--/.container-->
+
+        </section>
+
+       <section id="gallery" class="gallery">
+			<div class="container">
+				<div class="gallery-details">
+					<div class="gallary-header text-center">
+						<h2>
+							top destination
+						</h2>
+						<p>
+							Duis aute irure dolor in  velit esse cillum dolore eu fugiat nulla.  
+						</p>
+					</div><!--/.gallery-header-->
+					<div class="gallery-box">
+						<div class="gallery-content">
+						  	<div class="filtr-container">
+						  		<div class="row">
+
+						  			<div class="col-md-6">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g1.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													china
+												</a>
+												<p><span>20 tours</span><span>15 places</span></p>
+											</div><!-- /.item-title -->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  			<div class="col-md-6">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g2.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													venuzuala
+												</a>
+												<p><span>12 tours</span><span>9 places</span></p>
+											</div> <!-- /.item-title-->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  			<div class="col-md-4">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g3.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													brazil
+												</a>
+												<p><span>25 tours</span><span>10 places</span></p>
+											</div><!-- /.item-title -->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  			<div class="col-md-4">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g4.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													australia 
+												</a>
+												<p><span>18 tours</span><span>9 places</span></p>
+											</div> <!-- /.item-title-->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  			<div class="col-md-4">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g5.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													netharland
+												</a>
+												<p><span>14 tours</span><span>12 places</span></p>
+											</div> <!-- /.item-title-->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  			<div class="col-md-8">
+						  				<div class="filtr-item">
+											<img src="assets/images/gallary/g6.jpg" alt="portfolio image"/>
+											<div class="item-title">
+												<a href="#">
+													turkey
+												</a>
+												<p><span>14 tours</span><span>6 places</span></p>
+											</div> <!-- /.item-title-->
+										</div><!-- /.filtr-item -->
+						  			</div><!-- /.col -->
+
+						  		</div><!-- /.row -->
+
+						  	</div><!-- /.filtr-container-->
+						</div><!-- /.gallery-content -->
+					</div><!--/.galley-box-->
+				</div><!--/.gallery-details-->-
+			</div><!--/.container-->
+
+		</section>
+
+</body>
+<script>
+
+var mouse={x:10,y:10};
+
+  window.addEventListener("mousemove",
+  function(event)
+{
+  mouse.x=event.x;
+  mouse.y=event.y;
+   if(mouse.y>=60 &&  mouse.y<=200)
+ {
+ 	document.getElementById('contain').className="rotate2";
+ }
+  if(mouse.y>=300 && mouse.y<=500) 
+ {
+ 	document.getElementById('contain').className="rotate";
+ }
+
+});
+  
+  function navshow()
+  {
+  	document.getElementById('main').className='navbar';
+  	document.getElementById('main').style.display='block';
+  	var r=setTimeout(menu,1200);
+  }
+  function menu()
+  {
+  	document.getElementById('contain').style.display='block';
+  	document.getElementById('cross').style.display='block';
+  }
+  function navclose()
+  {
+  	document.getElementById('main').style.display='none';
+  	document.getElementById('contain').style.display='none';
+  	document.getElementById('cross').style.display='none';
+  	document.getElementById('main').className='';
+  }
+</script>
+</head>

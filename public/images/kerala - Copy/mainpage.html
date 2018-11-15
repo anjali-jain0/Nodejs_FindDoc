@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Kerala</title>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	.navbar 
+	{
+	   background-color: transparent;
+	   background: transparent;
+	   border-color: transparent;
+	   height:120px;
+    }
+    .navbar:hover
+	{
+       background-color:black;
+       opacity:0.7;
+  
+	}
+
+    .navbar li 
+    { 
+        font-family:Hand-Mocha-Mattari,arial,sans-serif;
+    	font-size:16px; 
+    	padding-top:20px;
+    	font-weight:bold;
+    } 
+    .navbar:hover
+    {
+        height:400px;
+    }
+    .cont
+    {
+    	height:720px;
+    	width:350px;
+    	margin-top:-160px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    	background-color:orange;
+    	transition-duration:2s;
+     }
+     @keyframes egmain{
+
+        0%{opacity:0.2;}
+        25%{opacity:0.4;}
+        50%{opacity:0.6;}
+        75%{opacity:0.8;}
+        100%{opacity:1;}
+
+     }
+    .img1s
+    {
+    	height:760px;
+    	width:350px;
+    	margin-top:-20px;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+     .img1sl
+    {
+    	opacity:0;
+    	height:760px;
+    	width:350px;
+    	margin-top:-760px;
+        animation-name:egmain;
+        animation-delay:2s;
+        animation-duration:4s;
+        animation-fill-mode:forwards;
+    	filter:brightness(0.9) contrast(0.9) saturate(0.9) ;
+    }
+    .bg
+    {
+    	width:1350px;
+
+    }
+    .btn
+    {
+    	margin-top:-1500px;
+    	width:150px;
+    	margin-left:570px;
+    }
+    .season1
+    {
+    	position:absolute;
+    	top:0px;
+    	left:0px;
+    	width:674px;
+    	height:700px;
+    	transform:rotateY(180deg);
+    	margin-top:-20px;
+    }
+    #seasondiv1
+    {
+    	position:absolute;
+    	top:0px;
+    	left:740px;
+    	width:700px;
+    	height:700px;
+        background-color:#f2f2f2;
+        opacity:0.6;
+    	margin-top:-20px;
+
+    }
+    #seasondiv2
+    {
+        position:absolute;
+        top:0px;
+        left:674px;
+        width:700px;
+        height:700px;
+        background-color:#f2f2f2;
+        opacity:0.6;
+        margin-top:-20px;
+
+    }
+    #div1
+    {
+        width:500px;
+        height:500px;
+        background-color:black;
+        opacity:0.6;
+        z-index:1;
+        position:absolute;
+        top:70px;
+        margin-left:700px;
+    }
+    #div2
+    {
+        width:500px;
+        height:500px;
+        background-color:black;
+        opacity:0.6;
+        z-index:1;
+        position:absolute;
+        top:70px;
+        margin-left:100px;
+    }
+    .anim
+    {
+        animation-name:eg;
+        animation-fill-mode:forwards;
+        animation-duration:2s;
+    }
+    .anim2
+    {
+        animation-name:eg2;
+        animation-fill-mode:forwards;
+        animation-duration:2s;
+    }
+     @keyframes eg2{
+        0%{margin-left:700px;}
+        100%{margin-left:50px;}
+    }
+    
+    @keyframes eg{
+        0%{left:740px;}
+        100%{left:0px;}
+    }
+    .images
+    {
+    	filter:saturate(0.9) contrast(0.9) brightness(0.9);
+    }
+    .icon1
+    {
+    	width:200px;
+    	height:200px;
+    }
+    .hero-title 
+    {
+        text-shadow: 0 0 40px #000;
+        font-size: 7vh;
+        line-height: 1;
+        font-family:vintage,script,sans-serif,serif,verdana;
+        color:white;
+        position:absolute;
+        top:820px;
+        left:400px;
+    }
+</style>
+</head>
+<body>
+	<div class="navbar transparent navbar-inverse navbar-static-top hr">
+    <div class="navbar-brand logo"></div>
+    <div class="navbar-brand-right">
+    </div>
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav mineul" style="font-size:17px;margin-top:9px; color:white;">
+               <li><a href='/experiences'>Experiences</a></li>
+       <li><a href='/about'>About</a></li>
+        <li><a href='/whatshappening'>What's Happening</a></li>
+        <li><a href='/seasonal'>Seasonal</a></li>
+        <li><a href='/planyourtrip'>Plan Your Trip</a></li>
+        <li><a href='/gallery'>Gallery</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="navdiv"></div>
+
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i1.jpg" alt="img">
+				<img class="img1sl" src="i2.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i6.jpg" alt="img">
+                <img class="img1sl" src="i4.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i3.jpg" alt="img">
+                <img class="img1sl" src="i9.jpg" alt="img">
+			</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="cont">
+				<img class="img1s" src="i4.jpg" alt="img">
+                <img class="img1sl" src="i1.jpg" alt="img">
+			</div>
+			</div>
+		</div>
+	</div>
+	<img class="bg" src="im.jpg" alt="img">
+    <h2 class="hero-title"> Make once-in-a-lifetime memories...</h2>
+<a href="2ndpage.html"><button class="btn" >Explore </button></a>
+<div class="row">
+<div class="col-lg-6">
+<div class="container1">
+<img class="images" style="z-index:-1;margin-top:-20px;" src="p1.jpg" alt="img">
+<div style="font-family:verdana;color:white;font-size:45px;position:absolute;top:300px;left:280px;">Spring</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="container2">
+	<img class="season1" src="p1.jpg" style="margin-top:-20px;" alt="img">
+   <div  id="seasondiv1"></div>
+   <div id='div1'></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="container2">
+	<img class="season1" src="fall.jpg" style="margin-top:-20px;" alt="img">
+   <div  id="seasondiv1" style="width:700px;height:700px;background-color:#f2f2f2;opacity:0.6;"></div>
+   <div style="font-family:verdana;color:black;font-size:45px;position:absolute;top:300px;left:280px;" >About</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="container1">
+<img class="images" style="z-index:-1;margin-top:-20px;"            src="fall.jpg" alt="img">
+<div style="font-family:verdana;color:white;font-size:45px;position:absolute;top:300px;left:280px;">Fall</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="container1">
+<img class="images" style="z-index:-1;margin-top:-20px;"              src="winter.jpg" alt="img">
+<div style="font-family:verdana;color:white;font-size:45px;position:absolute;top:300px;left:280px;">Winter</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="container2">
+	<img class="season1" src="winter.jpg" style="margin-top:-20px;" alt="img">
+   <div  id="seasondiv2"></div>
+   <div id="div2"></div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="container2">
+	<img class="season1" src="summer.jpg" style="margin-top:-20px;" alt="img">
+   <div  id="seasondiv1" style="width:700px;height:700px;background-color:#f2f2f2;opacity:0.6;"></div>
+   <div style="font-family:verdana;color:black;font-size:45px;position:absolute;top:300px;left:280px;">About</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="container1">
+<img class="images" style="z-index:-1;margin-top:-20px;"          src="summer.jpg" alt="img">
+<div style="font-family:verdana;color:white;font-size:45px;position:absolute;top:300px;left:280px;">Summer</div>
+</div>
+</div>
+</div>
+<img class="icon1" src="icon1.png" alt="img">
+</body> 
+<script>
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+        if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+            document.getElementById("seasondiv1").className="anim";
+           document.getElementById("div1").className="anim2";
+        } 
+            
+    
+        else if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+            document.getElementById("seasondiv2").className=          "anim";
+           document.getElementById("div2").className="anim";
+        }
+    }
+</script>
+</html>

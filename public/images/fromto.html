@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0;
+		overflow-y:hidden;
+	}
+	#canvas1
+	{
+		border:1px solid white;
+		position:absolute;
+		top:310px;
+		left:0px;
+	}
+	.circle
+	{
+		z-index:-20;
+		position:fixed;
+		top:410px;
+		left:-100px;
+		border-radius:50%;
+		width:1600px;
+		height:500px;
+		border:3px solid black;
+	}
+	#newpage1
+	{
+		width:1363px;
+		height:640px;
+		background-color:lightblue;
+		position:absolute;
+		top:0px;
+		left:0px;
+		display:none;
+	}
+
+</style>
+</head>
+<body>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+	<div class="circle"></div>
+	<div id="newpage1"></div>
+</body>
+<script>
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*2;
+	c.height=window.innerHeight*0.70;
+
+	function Info(x,y,r,npage)
+	{
+		this.x=x;
+		this.y=y;
+		this.r=r;
+		this.npage=npage;
+		this.draw=function()
+		{
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+			ctx.stroke();
+		}
+		this.cl=function()
+		{
+			if(getDistance(this.x,mouse.x,this.y,mouse.y)<=50)
+	  	{
+	  		this.npage=1;
+	  	}
+    }}
+
+	 function Ball(x,cx,y,cy,r,dx,dy,color,n,ny,dr,ct,clickct)
+	  {
+		this.x=x;
+		this.cx=cx;
+		this.cy=cy;
+		this.y=y;
+		this.r=r;
+		this.dx=dx;
+		this.dy=dy;
+	    this.color=color;
+	    this.n=n;
+	    this.ny=ny;
+	    this.dr=dr;
+	    this.ct=ct;
+	    this.clickct=clickct;
+		this.draw=function()
+		{
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+			ctx.fillStyle=this.color;
+			ctx.fill();
+		}
+		this.update=function()
+		{
+			this.draw();
+			this.x+=this.dx;
+			if(this.x<=this.cx-600 || this.x>=this.cx+70)
+			{
+				this.dx=0;
+			}
+			this.y+=this.dy;
+			if(this.y>=this.cy+this.ny || this.y<= this.cy-this.n)
+			{
+				this.dy=0;
+			}
+		}
+		this.hover=function()
+		{
+
+     	if(getDistance(this.x,mouse.x,this.y,mouse.y)<=50)
+ 		{
+ 			this.r+=this.dr;
+ 			if(this.r>=this.ct+this.dr)
+ 			{
+ 				this.dr=0;
+ 			}
+ 		}
+ 		else
+ 		{
+ 			this.r=50;
+ 			this.dr=50;
+ 		}
+	  }
+	  this.click=function()
+	  {
+	  	if(getDistance(this.x,mouse.x,this.y,mouse.y)<=50)
+	  	{
+	  		this.clickct=1;
+	  	}
+	  	else
+	  		this.color=color;
+	  }
+    }
+	window.addEventListener('keyup',
+		  			function(event)
+		  			{
+		  				if(event.keyCode==13)
+		  				{
+		  					if(info1.npage==1)
+		  						document.getElementById('newpage1').style.display="block";
+		  					if(c1.clickct==1)
+		  						info1.r=50;
+		  					if(c2.clickct==1)
+		  						c2.color="black";
+		  					if(c3.clickct==1)
+		  						c3.color="black";
+		  					if(c4.clickct==1)
+		  						c4.color="black";
+		  					if(c5.clickct==1)
+		  						c5.color="black";
+		  					if(c6.clickct==1)
+		  						c6.color="black";
+		  					if(c7.clickct==1)
+		  						c7.color="black";
+		  				}
+		  			});
+
+    var mouse={x:10,y:10};
+		window.addEventListener("mousemove",
+		     function(event)
+				{
+				  mouse.x=event.x;
+				  mouse.y=event.y-250;
+		        });
+
+   	var x1=0,x2=0,y1=0,y2=0,xD=0,yD=0;
+ 	function getDistance(x1,x2,y1,y2)
+ 	{
+ 		xD=x2-x1;
+ 		yD=y2-y1;
+ 		return Math.sqrt(Math.pow(xD,2) + Math.pow(yD,2));
+ 	}
+	var c1=new Ball(80,80,190,190,50,0,0,"pink",0,0,35,50,0);
+	var c2=new Ball(380,380,140,140,50,0,0,"yellow",0,0,35,50,0);
+	var c3=new Ball(680,680,110,110,50,0,0,"lightblue",0,0,35,50,0);
+	var c4=new Ball(980,980,120,120,50,0,0,"orange",0,0,35,50,0);
+	var c5=new Ball(1280,1280,180,180,50,0,0,"lightgreen",0,0,35,50,0);
+	var c6=new Ball(1580,1580,220,220,50,0,0,"yellow",0,0,35,50,0);
+	var c7=new Ball(1880,1880,270,270,50,0,0,"lightblue",0,0,35,50,0);
+
+    var info1=new Info(900,270,0,0);
+
+	function animate()
+		{
+			requestAnimationFrame(animate);
+	        ctx.clearRect(0,0,innerWidth*2,innerHeight);
+	        c1.update();c2.update();c3.update();c4.update();
+	        c5.update();c6.update();c7.update();
+	        c1.hover();c2.hover();c3.hover();c4.hover();
+	        c5.hover();c6.hover();c7.hover();
+	        c1.click();c2.click();c3.click();c4.click();
+	        c5.click();c6.click();c7.click();
+	        info1.draw();info1.cl();
+	    }
+
+  window.addEventListener("keyup",
+		  function(event)
+		{
+		  if(event.keyCode==37)
+		  {
+		  	c6.n=80;c5.n=80;c7.n=80;c1.ny=80;c2.ny=80;c3.ny=80;
+		  	c1.dx=-3;c1.dy=0.18;
+		  	c2.dx=-3;c2.dy=0.3;
+		  	c3.dx=-3;c3.dy=0.2;
+		  	c4.dx=-3;
+		  	c5.dx=-3;c5.dy=-0.5;
+		  	c6.dx=-3;c6.dy=-0.4;
+		  	c7.dx=-3;c7.dy=-0.4;
+		  }
+		  if(event.keyCode==39)
+		  {
+		  	c1.n=25;c2.n=25;c3.n=25;c5.ny=26;c6.ny=20;
+		  	c7.ny=50;
+		  	c1.dx=3;c1.dy=-0.21;
+		  	c2.dx=3;c2.dy=-0.34;
+		  	c3.dx=3;c3.dy=-0.26;
+		  	c4.dx=3;
+		  	c5.dx=3;c5.dy=0.18;
+		  	c6.dx=3;c6.dy=0.15;
+		  	c7.dx=3;c7.dy=0.4;
+		  }
+        });
+
+animate();
+</script>
+</html>

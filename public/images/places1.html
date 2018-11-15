@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  body
+  {
+    margin:0px;
+    overflow:hidden;
+  }
+  #main
+  {
+    background-color:#dedede;
+    position:absolute;
+    width:1360px;
+    height:650px;
+  }
+
+  .ball 
+  {
+   
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    position: absolute;
+    background: radial-gradient(circle at bottom, #f8cd00, #f8cd00 10%, #f8cd00 80%, #f8cd00 100%); 
+    top: 3px;
+    left: 350px;
+  }
+
+  .ball.bubble 
+  {
+    background: radial-gradient(circle at 50% 55%, #f8cd00, #f8cd00 40%,#f8cd00 60%, #f8cd00);
+
+    animation: bubble-anim 7s  infinite;
+    }
+
+  @keyframes bubble-anim {
+  0% {
+    transform: scale(1); }
+  1%{
+     border-radius:49.3%;
+    transform: scaleY(0.93) scaleX(0.95) rotate(70deg);
+  }
+  20% {
+    border-radius:49%;
+    transform: scaleY(0.90) scaleX(0.91) rotate(100deg) translateZ(-10px); }
+
+  48% {
+    border-radius:48%;
+    transform: scaleY(1) scaleX(0.90) rotate(200deg); }
+
+  68% {
+    border-radius:49%;
+    transform: scaleY(0.93) scaleX(1.02) rotate(300deg); }
+
+  80% {
+    border-radius:51%;
+    transform: scaleY(1.02) scaleX(0.95) rotate(200deg); }
+
+  97%{
+    border-radius:52%;
+    transform: scale(0.94) scaleX(0.98) rotate(-100deg);
+  }
+   100% {
+   border-radius:51%;
+    transform: scale(1) scaleX(0.98) rotate(100deg); } }
+
+  #place1
+  {
+    position:absolute;
+    top:200px;
+    left:300px;
+    text-decoration:none;
+    font-size:40px;
+    z-index:100;
+  }
+  #img1
+  {
+    background-color:pink;
+    width:600px;
+      height:300px;
+      position:absolute;
+      bottom:-500px;
+      left:200px;
+       z-index:90;
+      
+  }
+  .contain:hover #place1
+  {
+    text-decoration:underline;
+    font-weight:bold;
+  }
+  .contain:hover #img1
+  {
+    animation-name:up;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+  }
+  @keyframes up{
+    0%{bottom:-500px;}
+    100%{bottom:100px;}
+  }
+
+  #canvas1
+  {
+        position:fixed;
+        top:0px;
+        left:0px;
+        border:1px solid black;
+       
+    }
+
+  #place2
+  {
+    position:absolute;
+    top:400px;
+    left:500px;
+    text-decoration:none;
+    font-size:40px;
+    z-index:100;
+  }
+  #img2
+  {
+      width:400px;
+      height:400px;
+      position:absolute;
+      bottom:-500px;
+      left:450px;
+      z-index:90;
+      border-radius:50%;
+  }
+  .contain2:hover #place2
+  {
+    text-decoration:underline;
+  }
+  .contain2:hover #img2
+  {
+    animation-name:up;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+  }
+
+  </style>
+</head>
+<body>
+  <div id="main"></div>
+  <div class="dotted"></div>
+  <p id="place1">Kerala</p>
+  <div id="img1"></div>
+    </div>
+    <div class="contain2">
+  <p id="place2">Kashmir</p>
+  <img src='snow1.gif' id="img2">
+    </div>
+	<section class="stage">
+      <figure class="ball bubble"></figure>
+</section>
+<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+  var c=document.getElementById("canvas1");
+  var ctx=c.getContext("2d");
+  c.width=window.innerWidth*2;
+  c.height=window.innerHeight*0.97;
+
+  var x1=100;
+  var y1=c.height-40;
+
+  function animate()
+  {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0,0,innerWidth*2,innerHeight);
+    ctx.font='15px Arial';
+    ctx.fillText('this the text that will move below form start to end in x direction this the text that will move below form start to end in x directionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x direction ionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x directionthis the text that will move below form start to end in x direction',x1,y1);
+    x1-=1;
+  }
+
+animate();
+
+</script>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    #contain
+    {
+    	width:600px;
+    	height:600px;
+    	position:absolute;
+    	top:40px;
+    	left:380px;
+    	background-color:white;
+    	transform:rotate(0deg);
+    }
+	#img
+	{
+		width:450px;
+		height:450px;
+		border-radius:50%;
+		border:2px dashed black;
+		position:absolute;
+		top:60px;
+		left:40px;
+	}
+	.rotate
+    {
+    	animation-name:rotate;
+		animation-duration:3s;
+    }
+	@keyframes rotate{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(15deg);}
+		100%{transform:rotate(0deg);}
+	}
+	.rotate2
+	{
+		animation-name:rotate2;
+		animation-duration:3s;
+	}
+	@keyframes rotate2{
+		0%{transform:rotate(0deg);}
+		60%{transform:rotate(-15deg);}
+		100%{transform:rotate(0deg);}
+	}
+	#m1
+	{
+		font-size:25px;
+		position:absolute;
+		top:50px;
+		left:50px;
+		transform:scale(1);
+		z-index:5;
+	}
+	#m2
+	{
+		font-size:25px;
+		position:absolute;
+		top:200px;
+		left:-50px;
+	}
+    #m1:hover
+    {
+    	animation-name:scale;
+    	animation-duration:1s;
+    }
+  
+    @keyframes scale{
+    	0%{transform:scale(1);}
+    	100%{transform:scale(1.6);}
+    }
+</style>
+</head>
+<body>
+    <div id="contain">
+    <div id="img"></div>
+	<p id="m1">Menu 1</p>
+	<p id="m2">Menu 2 </p>
+	</div>
+</body>
+<script>
+
+var mouse={x:10,y:10};
+
+  window.addEventListener("mousemove",
+  function(event)
+{
+  mouse.x=event.x;
+  mouse.y=event.y;
+   if(mouse.y>=60 &&  mouse.y<=200)
+ {
+ 	document.getElementById('contain').className="rotate2";
+ }
+  if(mouse.y>=300 && mouse.y<=500) 
+ {
+ 	document.getElementById('contain').className="rotate";
+ }
+
+});
+ 
+</script>
+</html>

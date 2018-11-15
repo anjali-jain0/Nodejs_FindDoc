@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	.maindiv
+	{
+		width:400px;
+		height:600px;
+		position:fixed;
+		top:30px;
+		left:100px;
+		border-radius:5%;
+		border:1px solid lightgrey;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
+	.pink
+	{
+		background-color:pink;
+		width:400px;
+		position:absolute;
+		top:0px;
+		left:0px;
+		right:0px;
+		height:270px;
+		z-index:-1;
+	}
+	.white1
+	{
+		position:absolute;
+		top:160px;
+		left:10px;
+		width:360px;
+		border:1px solid lightgrey;
+		border-radius:3%;
+		height:230px;
+		background-color:white;
+	}
+	.white2
+	{
+		position:absolute;
+		top:400px;
+		left:10px;
+		width:360px;
+		border:1px solid lightgrey;
+		border-radius:3%;
+		height:200px;
+		background-color:white;
+	}
+	.bt1
+	{
+		position:absolute;
+		top:200px;
+		left:10px;
+	}
+	#hide
+	{
+		display:none;
+	}
+	#conbox
+	{
+		position:absolute;
+		top:100px;
+		left:700px;
+		width:400px;
+		height:320px;
+		border:1px solid lightgrey;
+		display:block;
+	}
+	#msg
+	{
+		width:340px;
+		height:20px;
+		position:absolute;
+		top:255px;
+	}
+	#btn2
+	{
+		position:absolute;
+		top:256px;
+		left:345px;
+	}
+	#btn3
+	{
+		position:absolute;
+		top:280px;
+		left:200px;
+		width:200px;
+	}
+</style>
+</head>
+<body>
+	<div class="maindiv">
+		<div class="pink"></div>
+		<div class="white1">
+			<p>No Conversation</p>
+			<button onclick="new1()" class="bt1">New Convo</button>
+		</div>
+		<div class="white2">
+			<p>Question 1</p>
+			<p>Answer 1</p>
+			<hr>
+			<p>Question 2</p>
+			<p>Answer 2</p>
+			<hr>
+			<div id="hide">
+			<p>Question 3</p>
+			<p>Answer 3</p>
+			<hr>
+			<p>Question 4</p>
+			<p>Answer 4</p>
+			<hr>
+		</div>
+			<button onclick='more()'>Read More</button>
+		</div>
+		<br><br><br><br>
+	</div>
+	<div id="conbox">
+		<p id="message"></p>
+		<p id="replymsg"></p>
+		<form>
+			<input id='msg' type="text" name="msg">
+			<button type="button" onclick="send()" id="btn2">Send</button>
+			<button id="btn3" type="button" onclick="reply()">Wait For Reply</button>
+			<input type="text" name="email">
+		</form>
+	</div>
+</body>
+<script>
+	function more()
+	{
+		document.getElementById('hide').style.display="block";
+	}
+	function new1()
+	{
+	document.getElementById('conbox').style.display="block";
+	}
+	function send()
+	{
+		document.getElementById('message').innerHTML+=document.getElementById('msg').value + '<br>';
+		document.getElementById('msg').value='';
+	}
+	function reply()
+	{
+		document.getElementById('replymsg').innerHTML="Give Yor Email Id";
+	}
+</script>
+</html>

@@ -1,0 +1,21 @@
+.head
+{
+font-family:verdana;
+font-weight:bold;
+text-align:center;
+}
+.containernew
+{
+width:850px;
+height:200px;
+margin-left:255px;
+margin-top:40px;
+background-color:#E5E7E9 ;
+}
+.p1
+{
+font-size:16px;
+font-family:verdana;
+margin-left:140px;
+margin-top:30px;
+}

@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+	 <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	.img2
+    {
+    	position:absolute;
+    	top:1400px;
+    	left:0px;
+    	width:1370px;
+    	height:400px;
+    	z-index:-4;
+    }
+    #divs
+    {
+    	border-radius:50%;
+    	height:35px;
+    	width:35px;
+    	position:absolute;
+    	top:1900px;
+    	left:320px;
+        background-color:#262626;
+    	opacity:0;
+    	z-index:10;
+    }
+    #divs1
+    {
+    	border-radius:50%;
+    	height:35px;
+    	width:35px;
+    	position:absolute;
+    	top:1900px;
+    	left:600px;
+        background-color:#262626;
+    	opacity:0;
+    	z-index:10;
+    }
+    #divs2
+    {
+    	border-radius:50%;
+    	height:35px;
+    	width:35px;
+    	position:absolute;
+    	top:1900px;
+    	left:850px;
+        background-color:#262626;
+    	opacity:0;
+    	z-index:10;
+    }
+    #divs3
+    {
+    	border-radius:50%;
+    	height:35px;
+    	width:35px;
+    	position:absolute;
+    	top:1900px;
+    	left:1000px;
+        background-color:#262626;
+    	opacity:0;
+    	z-index:10;
+    }
+	#main
+	{
+		width:1370px;
+		height:650px;
+		position:absolute;
+		left:0px;
+		top:0px;
+		filter:brightness(0.76) contrast(0.76) saturate(0.7);
+		z-index:-3;
+	}
+	#main2
+	{
+		width:1370px;
+		height:650px;
+		position:absolute;
+		left:0px;
+		top:0px;
+		filter:brightness(0.76) contrast(0.76) saturate(0.7);
+		z-index:-2;
+	}
+	.div1
+    {
+    	animation-name:translate;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes translate{
+    	0%{top:1900px;opacity:0;}
+    	100%{top:1630px;opacity:1;}
+    }
+    .div2
+    {
+    	animation-name:translate2;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes translate2{
+    	0%{top:1900px;opacity:0;}
+    	100%{top:1530px;opacity:1;}
+    }
+    .div3
+    {
+    	animation-name:translate3;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes translate3{
+    	0%{top:1900px;opacity:0;}
+    	100%{top:1600px;opacity:1;}
+    }
+    .div4
+    {
+    	animation-name:translate4;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes translate4{
+    	0%{top:1900px;opacity:0;}
+    	100%{top:1480px;opacity:1;}
+    }
+    #seasondiv1
+    {
+    	position:absolute;
+    	top:660px;
+    	left:740px;
+    	width:700px;
+    	height:700px;
+        background-color:#f2f2f2;
+        opacity:0.6;
+    	margin-top:-20px;
+
+    }
+     #div1
+    {
+        width:500px;
+        height:500px;
+        background-color:black;
+        opacity:0.6;
+        z-index:1;
+        position:absolute;
+        top:710px;
+        margin-left:700px;
+    }
+     .images
+    {
+    	filter:saturate(0.9) contrast(0.9) brightness(0.9);
+    	z-index:-1;
+    	margin-top:-20px;
+    	position:absolute;
+    	top:660px;
+    	left:0px;
+    }
+    .anim
+    {
+        animation-name:eg;
+        animation-fill-mode:forwards;
+        animation-duration:2s;
+    }
+    .anim2
+    {
+        animation-name:eg2;
+        animation-fill-mode:forwards;
+        animation-duration:2s;
+    }
+     @keyframes eg2{
+        0%{margin-left:700px;}
+        100%{margin-left:50px;}
+    }
+    
+    @keyframes eg{
+        0%{left:740px;}
+        100%{left:0px;}
+    }
+</style>
+</head>
+<body>
+	<img id="main2" src="travel3.gif">
+	<img  id="main" src="kerala18.gif">
+
+	<div class="row">
+	<div class="col-lg-6">
+	<div class="container1">
+	<img class="images"  src="p1.jpg" alt="img">
+	<div style="font-family:verdana;color:white;font-size:45px;position:absolute;top:300px;left:280px;">Spring</div>
+	</div>
+	</div>
+	<div class="col-lg-6">
+	<div class="container2">
+	   <div  id="seasondiv1"></div>
+	   <div id='div1'></div>
+	</div>
+	</div>
+	</div>
+
+	<img class="img2" src="explore2.jpg" alt="img">
+	<div data-toggle="popover1"  id="divs" ></div>
+	<div data-toggle="popover2"  id="divs1" ></div>
+	<div data-toggle="popover3"  id="divs2" ></div>
+	<div data-toggle="popover4"  id="divs3" ></div>
+</body>
+<script>
+	var k=setTimeout(f1,10000);
+	function f1()
+	{
+		document.getElementById('main2').style.display='none';
+	}
+</script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover1"]').popover({title: "Header1", content: "Blabla", trigger: "hover"});    
+  
+});
+$(document).ready(function(){
+    $('[data-toggle="popover2"]').popover({title: "Header2", content: "Blabla", trigger: "hover"});    
+  
+});
+$(document).ready(function(){
+    $('[data-toggle="popover3"]').popover({title: "Header3", content: "Blabla", trigger: "hover"});    
+  
+});
+$(document).ready(function(){
+    $('[data-toggle="popover4"]').popover({title: "Header4", content: "Blabla", trigger: "hover"});    
+  
+});
+</script>
+
+<script>
+	window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+
+    	if(document.body.scrollTop > 250 || document.documentElement.scrollTop > 250)
+    	{
+    	   document.getElementById("seasondiv1").className="anim";
+           document.getElementById("div1").className="anim2";
+    	}
+            
+        if(document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000)
+        {
+        	document.getElementById("divs").className="div1";
+            document.getElementById("divs1").className="div2";
+            document.getElementById("divs2").className="div3";
+            document.getElementById("divs3").className="div4";
+        } 
+        else 
+        {
+            document.getElementById("divs").className="";
+            document.getElementById("divs1").className="";
+            document.getElementById("divs2").className="";
+            document.getElementById("divs3").className="";
+        }
+    }
+</script>
+</html>

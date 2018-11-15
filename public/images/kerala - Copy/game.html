@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<style>
+		body
+		{
+			margin:0;
+			overflow-y:hidden;
+		}
+		.img
+		{
+			width:1700px;
+			height:640px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			animation-name:trans;
+			animation-duration:20s;
+			animation-fill-mode:forwards;
+		}
+        @keyframes trans{
+        	0%{left:0px;}
+        	100%{left:-330px;}
+        }
+		#canvas1
+	    {
+	    	position:fixed;
+	    	top:0px;
+	    	left:0px;
+			border:1px solid black;
+		}
+</style>
+</head>
+<body>
+	<img class="img" src="game9.jpg">
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*2;
+	c.height=window.innerHeight*0.97;
+    
+    function Rect(x,y,w,h,dx)
+    {
+    	this.x=x;
+    	this.y=y;
+    	this.w=w;
+    	this.h=h;
+    	this.dx=dx;
+    	this.draw=function()
+    	{
+    		ctx.beginPath();
+		    ctx.rect(this.x,this.y,this.w,this.h);
+		    ctx.stroke();
+	    }
+    	this.update=function()
+    	{
+    		this.draw();
+    		this.x-=this.dx;
+    	}
+    }
+
+    function Ball(x,y,w,h,dx,dy,color,type)
+  {
+  	this.type=type;
+  	if(type=='image')
+  	{
+  		this.image=new Image();
+  		this.image.src=color;
+  	}
+	this.x=x;
+	this.y=y;
+	this.w=w;
+	this.h=h;
+	this.dx=dx;
+	this.dy=dy;
+	this.draw=function()
+	{
+		ctx.beginPath();
+		if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.w, this.h);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+		ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+		ctx.fillStyle=this.color;
+		ctx.fill();
+	}
+	this.update=function()
+	{
+		this.draw();
+		this.x+=this.dx;
+		this.y+=this.dy;
+	}
+  }
+  	var x1=0;x2=0;y1=0;y2=0;var xD=0;yD=0;
+   function getDistance(x1,x2,y1,y2)
+   {
+   	xD=x2-x1;
+   	yD=y2-y1;
+   	return Math.sqrt(Math.pow(xD,2) + Math.pow(yD,2));
+   }
+
+   var c1=new Ball(100,500,30,0.7,-0.35,"orange") ;
+   var c2=new Ball(1000,280,20,-1,0,"pink");
+    var c3=new Ball(1400,50,15,-0.4,0,"pink");
+    var c4=new Ball(300,-50,17,-0.4,0.7,"pink");
+   var rect1=new Rect(1600,400,400,30,2);
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth*2,innerHeight);
+        c1.update();
+        c2.update();
+        c3.update();
+        c4.update();
+        if(c4.y>=400)
+        {
+        	c4.dx=0.3;
+        	c4.dy=0;
+        }
+        if(c4.y>=400 && c4.x>=250)
+        {
+        	c4.dy=-0.3;
+        }
+        if(c4.x>=400)
+        {
+        	c4.dx=0;c4.dy=0;
+        }
+        if(c1.x>=800)
+        {
+        	c1.dy=-0.26;
+        }
+        if(c2.x<=600)
+        {
+        	c2.dy=0.2;
+        }
+        if(c3.x<=1100)
+        {
+        	c3.dx=0;
+        }
+        rect1.update();
+        if(getDistance(c1.x,c2.x,c1.y,c2.y)<=50)
+        {
+        	c2.dx=0;
+        	c2.dy=0;
+        	c1.dx=0;
+        	c1.dy=0;
+        }
+    }
+animate();
+
+</script>
+</html>

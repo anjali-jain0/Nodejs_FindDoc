@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		overflow:hidden;
+	}
+	.outdiv
+	{
+	    border-radius:50%;
+		width:550px;
+		height:550px;
+		position:fixed;
+		top:80px;
+		left:400px;
+		opacity:0.4;
+		background-color:orange;
+	}
+	.indiv
+	{
+		border-radius:50%;
+		width:450px;
+		height:450px;
+		position:fixed;
+		top:130px;
+		left:452px;
+		opacity:0.7;
+		background-color:orange;
+	}
+	.innerdiv
+	{
+		border:1px solid black;
+		border-radius:50%;
+		width:100px;
+		height:100px;
+		position:absolute;
+		top:-40px;
+		left:-40px;
+		background-color:white;
+		opacity:0.5;
+	}
+	.n1
+	{
+		position:absolute;
+		top:5px;
+		left:200px;
+	}
+	.c1
+	{
+		position:absolute;
+		top:-40px;
+		left:190px;
+		border:1px solid black;
+		background-color:black;
+		opacity:0.5;
+		width:30px;
+		height:30px;
+		border-radius:50%;
+	}
+	.c2
+	{
+		position:absolute;
+		top:170px;
+		left:455px;
+		border:1px solid black;
+		background-color:black;
+		opacity:0.5;
+		width:30px;
+		height:30px;
+		border-radius:50%;
+	}
+	.n2
+	{
+		position:absolute;
+		top:170px;
+		left:420px;
+	}
+	.n3
+	{
+		position:absolute;
+		top:170px;
+		left:20px;
+	}
+	.n4
+	{
+		position:absolute;
+		top:400px;
+		left:200px;
+	}
+	#img1
+	{
+		position:absolute;
+		top:80px;
+		left:80px;
+		border-radius:50%;
+		width:300px;
+		height:300px;
+		opacity:1;
+	}
+	#img2
+	{
+		position:absolute;
+		top:80px;
+		left:80px;
+		border-radius:50%;
+		width:300px;
+		height:300px;
+		opacity:0;
+	}
+	#img1text
+	{
+		position:fixed;
+		top:340px;
+		left:900px;
+		font-size:25px;
+		font-family:verdana;
+		opacity:1;
+	}
+	#img2text
+	{
+		position:fixed;
+		top:340px;
+		left:900px;
+		font-size:25px;
+		font-family:verdana;
+		opacity:0;
+	}
+	#for1
+	{
+		position:fixed;
+		top:-30px;
+		left:300px;
+		border-radius:50%;
+		background-color:black;
+		opacity:0.5;
+		width:750px;
+		height:750px;
+		z-index:5;
+		transform:scale(0);
+	}
+	.show
+	{
+		animation-name:show;
+		animation-duration:0.3s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes show
+	{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+</style>
+</head>
+<body>
+	<div id="for1"></div>
+	<div class="outdiv"></div>
+	<div class="indiv">
+		<img id="img1" src="i2.jpg" alt="img">
+		<button id="img1text" onclick="show()">About Image 1</button>
+	    <img id="img2" src="i3.jpg" alt="img">
+	    <button id="img2text" onclick="show()">About Image 2</button>
+		<p class="n1">1</p>
+		<p class="n2">2</p>
+		<p class="n4">3</p>
+		<p class="n3">4</p>
+		<div ondragover="f2(event)" ondrop="f3img1(event)"   class="c1">
+			<div draggable="true" id="id1" ondragstart="f1(event)" class="innerdiv"></div>
+		</div>
+		<div ondragover="f2(event)" ondrop="f3img2(event)"  class="c2"></div>
+	</div>
+</body>
+<script>
+	function show()
+	{
+		document.getElementById("for1").className='show';
+	}
+	function f1(e)
+		{
+		  e.dataTransfer.setData("text",e.target.id);
+		}
+	function f2(e)
+		{
+		  e.preventDefault();
+		}
+	function f3img1(e)
+		{
+		  e.preventDefault();
+		  document.getElementById('img2text').style.opacity=0;
+		  document.getElementById('img1text').style.opacity=1;
+		  document.getElementById('img2').style.opacity=0;
+		  document.getElementById('img1').style.opacity=1;
+		  var data=e.dataTransfer.getData("text");
+		  e.target.appendChild(document.getElementById(data));
+		}
+	function f3img2(e)
+		{
+		  e.preventDefault();
+		  document.getElementById('img1text').style.opacity=0;
+		  document.getElementById('img2text').style.opacity=1;
+		  document.getElementById('img1').style.opacity=0;
+		  document.getElementById('img2').style.opacity=1;
+		  var data=e.dataTransfer.getData("text");
+		  e.target.appendChild(document.getElementById(data));
+		}
+</script>
+</html>

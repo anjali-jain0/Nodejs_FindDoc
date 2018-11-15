@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0;
+	}
+	#main
+	{
+		position:fixed;
+		top:0px;
+		left:0px;
+		width:1370px;
+		height:650px;
+		z-index:-5;
+	}
+	#canvas1
+	{
+		border:1px solid black;
+	}
+	#img
+	{
+		height:600px;
+		width:1150px;
+		position:absolute;
+		top:50px;
+		left:80px;
+		z-index:-2;
+		opacity:0;
+	}
+	.show
+	{
+		animation-name:show;
+		animation-duration:11s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes show{
+		0%{opacity:0;}
+		100%{opacity:1;}
+	}
+	#part1
+	{
+		position:absolute;
+		top:110px;
+		left:700px;
+		width:300px;
+		height:200px;
+		background-color:orange;
+		border-radius:50%;
+	}
+	
+	.zoom
+	{
+		animation-name:zoom;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes zoom{
+		0%{font-size:0px;}
+		100%{font-size:30px;}
+	}
+</style>
+</head>
+<body>
+	<img id='main' src='cab.gif'>
+	<img id="img" src="cab2.jpg">
+	<div onclick="text()" id="part1"></div>
+	<button onclick="f()">Click</button>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.99;
+	c.height=window.innerHeight*0.95;
+
+	var mouse={x:10,y:10};
+	window.addEventListener("mousemove",
+		  function(event)
+		{
+		  mouse.x=event.x;
+		  mouse.y=event.y;
+        });
+    
+    function Particle(x,y,r,dx,dy,ct,color,cx,cy)
+	  {
+		this.x=x;
+		this.y=y;
+		this.r=r;
+		this.dx=dx;
+		this.dy=dy;
+		this.ct=ct;
+	    this.color=color;
+	    this.cx=cx;
+	    this.cy=cy;
+		this.draw=function()
+		{
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+			ctx.fillStyle=this.color;
+			ctx.fill();
+		}
+		this.update=function()
+		{
+			this.draw();
+			this.x+=this.dx;
+			if( this.x<=10)
+			{
+				this.dx=10;
+			}
+			if(this.x>=c.width-55)
+			{
+				this.dx=-10;
+			}
+			if(this.y>=c.height-20)
+			{
+				this.dy=0;
+			}
+			this.y+=this.dy;
+		}
+	  }
+
+    
+    var array=[];var x=95;var y=70;var dx=0;var dy=0;
+	for(var i=0;i<25000;i++)
+	 {
+	 	x+=5;
+        if(x>=1300)
+        {
+        	x=100;
+        	y+=5;
+        }
+        var r=1.4;
+        var color="black";
+        dx=0;
+        dy=0;
+        array.push(new Particle(x,y,r,dx,dy,1,color,x,y));
+
+	 }
+
+    var move=1;
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+
+        for(var j=0;j<array.length;j++)
+        {
+        	array[j].update();
+        	if(move==1)
+        	{
+        	if(mouse.x>c.width/2)
+        	{
+        		if(array[j].x<=array[j].cx+40)
+        		array[j].dx=10;
+        	    else
+        	    array[j].dx=0;	
+        	}
+        	if(mouse.x<=c.width/2)
+        	{
+        		if(array[j].x>=array[j].cx-40)
+        		array[j].dx=-10;
+        	    else
+        	    array[j].dx=0;
+            }
+            if(mouse.y>c.height/2)
+        	{
+        		if(array[j].y<=array[j].cy+15)
+        		array[j].dy=10;
+        	    else
+        	    array[j].dy=0;	
+        	}
+        	if(mouse.y<=c.height/2)
+        	{
+        		if(array[j].y>=array[j].cy-15)
+        		array[j].dy=-10;
+        	    else
+        	    array[j].dy=0;
+            }
+	    }}  
+}
+
+function f()
+{
+	move=2;
+	        for(m=0;m<array.length;m++)
+	        {
+	        if(m==2 || m==17000)
+	        {
+			if(array[m].x<=c.width/2)
+			{
+			array[m].dx=10;
+		    }
+		    else
+		    {
+		    array[m].dx=-10;
+		    }
+			array[m].r=20;
+			array[2].color="lightblue";
+			array[17000].color="pink";
+			array[m].dy=30;
+			array[m].update();
+}
+else if(m!=2 && m!=17000)
+{array[m].r=0.8;
+array[m].dx=0;array[m].dy=0;
+document.getElementById('img').className="show";
+}}	}
+
+function text()
+	{
+		array[17000].r=40;
+		array[17000].dx=0;
+		var cc=setInterval(call,50);
+	}
+	var xx=20;
+	function call()
+	{
+		array[17000].y-=xx;
+		if(array[17000].y<=100)
+		{
+			array[17000].y=600;
+			xx=0;
+		}
+	}
+
+ animate();
+
+</script>
+</html>

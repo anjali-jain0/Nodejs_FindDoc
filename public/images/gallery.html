@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		overflow:hidden;
+	}
+	#canvas1
+	{
+		border:1px solid black;
+		position:fixed;
+		top:0px;
+		left:0px;
+		z-index:106;
+	}
+	#main
+	{
+		position:fixed;
+		top:0px;
+		left:0px;
+        width:1370px;
+        height:660px;
+        z-index:100;
+        filter:brightness(0.6) contrast(0.6) saturate(0.6);
+        transform:scale(0);
+	}
+	#main2
+	{
+		position:fixed;
+		top:0px;
+		left:700px;
+        width:700px;
+        height:660px;
+        z-index:100;
+        filter:brightness(0.6) contrast(0.6) saturate(0.6);
+        transform:scale(0);
+	}
+	#main3
+	{
+		position:fixed;
+		top:0px;
+		left:0px;
+        width:500px;
+        height:660px;
+        z-index:100;
+        filter:brightness(0.6) contrast(0.6) saturate(0.6);
+        transform:scale(0);
+	}
+	#main4
+	{
+		position:fixed;
+		top:0px;
+		left:0px;
+        width:1360px;
+        height:660px;
+        z-index:105;
+        filter:brightness(0.6) contrast(0.6) saturate(0.6);
+        transform:scale(0);
+	}
+	.grow4
+	{
+		animation-name:grow4;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow4{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	.grow3
+	{
+		animation-name:grow3;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow3{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	.grow2
+	{
+		animation-name:grow2;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow2{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	.grow
+	{
+		animation-name:grow;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	#maindiv
+	{
+		width:170px;
+		height:220px;
+		background-color:orange;
+		position:fixed;
+		top:310px;
+		left:550px;
+		transform:rotate(-45deg);
+		z-index:106;
+	}
+	.move
+	{
+		animation-name:move;
+		animation-duration:1.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes move{
+		0%{top:310px;left:550px;}
+		100%{top:410px;left:1150px;}
+	}
+	.anidiv
+	{
+		animation-name:shake;
+		animation-duration:0.5s;
+		animation-iteration-count:4;
+	}
+	@keyframes shake
+	{
+	0% { transform: translate(1px, 1px) rotate(-45deg); }
+    10% { transform: translate(-1px, -2px) rotate(-46deg); }
+    20% { transform: translate(-3px, 0px) rotate(-44deg); }
+    30% { transform: translate(3px, 2px) rotate(-45deg); }
+    40% { transform: translate(1px, -1px) rotate(-44deg); }
+    50% { transform: translate(-1px, 2px) rotate(-46deg); }
+    60% { transform: translate(-3px, 1px) rotate(-45deg); }
+    70% { transform: translate(3px, 1px) rotate(-46deg); }
+    80% { transform: translate(-1px, -1px) rotate(-44deg); }
+    90% { transform: translate(1px, 2px) rotate(-45deg); }
+    100% { transform: translate(1px, -2px) rotate(-46deg); }
+	}
+	#img1
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg1
+	{
+		animation-name:trans1;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes trans1
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:500px;left:600px;}
+	}
+	#img2
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg2
+	{
+		animation-name:trans2;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+		animation-delay:0.5s;
+	}
+	@keyframes trans2
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:200px;left:700px;}
+	}
+	#img3
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg3
+	{
+		animation-name:trans3;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+		animation-delay:1s;
+	}
+	@keyframes trans3
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:70px;left:970px;}
+	}
+</style>
+</head>
+<body>
+	<img id="main" src="travel3.gif">
+	<img id="main2" src="15.gif">
+	<img id="main3" src="12.gif">
+	<img id="main4" src="16.gif">
+	<button onclick="f1()">Start</button>
+	<div id="maindiv"></div>
+	<img id="img1" src="i1.jpg" alt="img">
+    <img id="img2" src="i2.jpg" alt="img">
+    <img id="img3" src="i3.jpg" alt="img">
+    <canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+	var r=setTimeout(c1,100);
+	function c1()
+	{
+		document.getElementById('main').className='grow';
+	}
+	var s=setTimeout(c2,700);
+	function c2()
+	{
+		document.getElementById('main').style.width='700px';
+		document.getElementById('main2').className='grow2';
+	}
+	var k=setTimeout(c3,1300);
+	function c3()
+	{
+		document.getElementById('main').style.width='500px';
+		document.getElementById('main2').style.width='500px';
+        document.getElementById('main').style.left='500px';
+        document.getElementById('main2').style.left='1000px';
+        document.getElementById('main3').className='grow3';
+	}
+	var p=setTimeout(c4,2100);
+	function c4()
+	{
+		document.getElementById('main4').className='grow4';
+	}
+
+	function f1()
+	{
+		document.getElementById('maindiv').className="anidiv";
+		document.getElementById('img1').className="aniimg1";
+		document.getElementById('img2').className="aniimg2";
+		document.getElementById('img3').className="aniimg3";
+
+	}
+
+	var l=setTimeout(c5,2500);
+	function c5()
+	{
+		document.getElementById('maindiv').className='move';
+	}
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.995;
+	c.height=window.innerHeight*0.975;
+
+	function Ball(x,y,r,dy,color)
+  {
+	this.x=x;
+	this.y=y;
+	this.r=r;
+	this.dy=dy;
+    this.color=color;
+	this.draw=function()
+	{
+		ctx.beginPath();
+		ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+		ctx.fillStyle=this.color;
+		ctx.fill();
+	}
+	this.update=function()
+	{
+		this.draw();
+		this.y+=this.dy;
+		if(this.y>=100)
+			this.dy=0;
+	}
+  }
+var array=[];var x=270;var y=-100;
+for(var i=0;i<7;i++)
+{
+	x+=100;
+	y-=20;
+	var r=30;
+	var dy=2;
+	var color='orange';
+	array.push(new Ball(x,y,r,dy,color));
+}
+function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        for(var j=0;j<array.length;j++)
+        {
+        	array[j].update();
+        }
+
+    }
+animate();
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	#canvas1
+	    {
+			border:1px solid black;
+		}
+</style>
+</head>
+<body>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.99;
+	c.height=window.innerHeight*0.97;
+    
+
+    function Alpha(x,y,dx,dy,color,text)
+    {
+    	this.x=x;
+    	this.y=y;
+    	this.dx=dx;
+    	this.dy=dy;
+    	this.color=color;
+    	this.text=text;
+
+    	this.draw=function()
+    	{
+    		ctx.beginPath();
+		    ctx.font='20px Arial';
+		    ctx.fillStyle=this.color;
+		    ctx.fillText(this.text,this.x,this,y);
+	    }
+    	this.update=function()
+    	{
+    		this.draw();
+    		this.x+=this.dx;
+    		this.y+=this.dy;
+    		if(this.x>=c.width || this.x<=0)
+    		{
+    			this.dx=-this.dx;
+    		}
+    		if(this.y>=c.height || this.y<=0)
+    		{
+    			this.dy=-this.dy;
+    		}
+    	}
+    }
+
+    var array=[];
+    var x=0,y=0;var dx=0,dy=0;
+    for(var i=0;i<50;i++)
+    {
+    	x+=100;
+    	y=c.height/2;
+    	dx=Math.random()*80;
+    	dy=Math.random()*80;
+    	color='orange';
+    	text='A';
+    	array.push(new Alpha(x,y,dx,dy,color,text));
+    }
+
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth*2,innerHeight);
+        for(var j=0;j<array.length;j++)
+        {
+        	array[j].update();
+        }
+    }
+    
+    animate();
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#calendar{
+    width: 130px;
+    height: 180px;
+    background-color: cornflowerblue;
+    color: #fff;
+    border-radius: 5%;
+    box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+}
+
+#calendar>p{
+    font-family: Verdana, Arial, sans-serif;
+    padding: 10px 0;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+#calendar-day{
+    font-size: 16px;
+}
+
+#calendar-month-year{
+    font-size: 14px;
+}
+
+#calendar-date{
+    font-size: 64px;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+</style>
+</head>
+    <body>
+        <div id="calendar">
+            <p id="calendar-day"></p>
+            <p id="calendar-date"></p>
+            <p id="calendar-month-year"></p>
+        </div>
+    </body>
+<script>
+  function calendar(){
+    var day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var month=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var d=new Date();
+    setText('calendar-day', day[d.getDay()]);
+    setText('calendar-date', d.getDate());
+    setText('calendar-month-year', month[d.getMonth()]+' '+(1900+d.getYear()));
+};
+
+
+function setText(id, val){
+    if(val < 10){
+        val = '0' + val;    //add leading 0 if val < 10
+    }
+    document.getElementById(id).innerHTML = val;
+};
+
+//call calendar() when page load
+window.onload = calendar;
+</script>
+</html>

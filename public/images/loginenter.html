@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	#img1
+	{
+		position:absolute;
+		top:170px;
+		left:560px;
+		width:280px;
+		height:280px;
+		transform:scale(1);
+	}
+	#img2
+	{
+		position:absolute;
+		top:170px;
+		left:560px;
+		width:280px;
+		height:280px;
+		transform:scale(0);
+	}
+	#img3
+	{
+		position:absolute;
+		top:170px;
+		left:560px;
+		width:280px;
+		height:280px;
+		transform:scale(0);
+	}
+	#img4
+	{
+		position:absolute;
+		top:160px;
+		left:560px;
+		width:320px;
+		height:320px;
+		transform:scale(0);
+	}
+</style>
+</head>
+<body>
+	<img id="img1" src='character12.png'>
+	<img id="img2" src='character17.png'>
+ 	<img id="img3" src='character6.jpg'>
+ 	<img id="img4" src='6.png'>
+</body>
+<script>
+	var c1=setInterval(f1,2000);
+	function f1()
+	{
+		document.getElementById('img1').style.display='none';
+		document.getElmentById('img2').style.display='block';
+	}
+</script>
+</html>

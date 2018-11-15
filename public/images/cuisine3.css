@@ -1,0 +1,15 @@
+.list-group
+{
+width:500px;
+display:inline-block;
+margin-top:50px;
+margin-left:100px;
+}
+.list-group-item
+{
+text-align:center;
+}
+body
+{
+background-color:#FFEFD5;
+}

@@ -1,0 +1,27 @@
+body
+		{
+			margin:0;
+			overflow-y:hidden;
+		}
+		.img
+		{
+			width:1700px;
+			height:640px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			animation-name:trans;
+			animation-duration:20s;
+			animation-fill-mode:forwards;
+		}
+        @keyframes trans{
+        	0%{left:0px;}
+        	100%{left:-330px;}
+        }
+		#canvas1
+	    {
+	    	position:fixed;
+	    	top:0px;
+	    	left:0px;
+			border:1px solid black;
+		}

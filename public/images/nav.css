@@ -1,0 +1,74 @@
+.divnav
+{
+    background-color:rgba(255,178,56,0.6);
+    width:1360px;
+height:100px;
+position:fixed;
+top:0px;
+left:0px;
+z-index:2;
+text-align:center;
+padding-top:50px;
+font-family:Raleway;
+}
+ a
+{
+    color:white;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding:10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+#maintext
+{
+font-size:30px;
+position:absolute;
+left:20px;
+top:460px;
+}
+#nameres
+{
+font-size:40px;
+position:absolute;
+left:20px;
+color:black;
+top:490px;
+}
+.circleBehind a:before, div.circleBehind a:after
+{
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 4px solid white;
+opacity:0.3;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    border-radius: 50%;
+    background: transparent;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.circleBehind a:after
+{
+    border-width: 2px;
+    transition: all 0.4s;
+}
+
+div.circleBehind a:hover:before
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.circleBehind a:hover:after
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1.3);
+}

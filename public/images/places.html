@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    body
+    {
+    	background-color:#e5e5e5;
+    }
+	#place1
+	{
+		position:absolute;
+		top:200px;
+		left:300px;
+		text-decoration:none;
+		font-size:40px;
+	}
+	#img1
+	{
+		background-color:pink;
+		width:600px;
+	    height:300px;
+	    position:absolute;
+	    bottom:-500px;
+	    left:200px;
+	    z-index:-99;
+	    
+	}
+	.contain:hover #place1
+	{
+		text-decoration:underline;
+		font-weight:bold;
+	}
+	.contain:hover #img1
+	{
+		animation-name:up;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes up{
+		0%{bottom:-500px;}
+		100%{bottom:200px;}
+	}
+	#place2
+	{
+		position:absolute;
+		top:400px;
+		left:500px;
+		text-decoration:none;
+		font-size:40px;
+	}
+	#img2
+	{
+		background-color:lightgrey;
+		width:500px;
+	    height:400px;
+	    position:absolute;
+	    top:250px;
+	    left:400px;
+	    z-index:-99;
+	    display:none;
+	}
+	.contain2:hover #place2
+	{
+		text-decoration:underline;
+	}
+	.contain2:hover #img2
+	{
+		display:block;
+	}
+</style>
+</head>
+<body>
+    <div class="contain">
+	<p id="place1">Kerala</p>
+	<div id="img1"></div>
+    </div>
+    <div class="contain2">
+	<p id="place2">Kashmir</p>
+	<div id="img2"></div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

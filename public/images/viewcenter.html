@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	#img
+	{
+		position:absolute;
+		top:220px;
+		left:550px;
+		border-radius:50%;
+		width:200px;
+		height:200px;
+		transform:scale(0.8);
+		z-index:-8;
+	}
+	.zoom
+	{
+		animation-name:zoom;
+		animation-duration:1.2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes zoom{
+		0%{transform:scale(0.8);}
+		100%{transform:scale(1.8);}
+	}
+	.zoomin
+	{
+		animation-name:zoomin;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes zoomin{
+		0%{transform:scale(1.8);}
+		100%{transform:scale(0);}
+	}
+	.grow2
+	{
+		animation-name:grow2;
+		animation-duration:1s;
+		animation-delay:0.1s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow2{
+		0%{transform:scale(1) translate(0px,0px);}
+		100%{transform:scale(3) translate(-30px,-30px);}
+	}
+	#div1
+	{
+		width:100px;
+		height:100px;
+		border-radius:50%;
+		position:absolute;
+		top:350px;
+		left:720px;
+		border:1px solid black;
+		background-color:lightblue;
+		transform:scale(0);
+	}
+	.grow1
+	{
+		animation-name:grow1;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes grow1{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	#canvas1
+	{
+		position:fixed;
+		top:40px;
+		left:300px;
+		border:1px solid black;
+		z-index:-99;
+	}
+</style>
+</head>
+<body>
+	<img id="img" src="i1.jpg">
+	<div onclick="show()" id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.5;
+	c.height=window.innerHeight*0.85;
+
+	function Text(x,y,cy,dy,color,val,font)
+	{
+		this.x=x;
+		this.y=y;
+		this.cy=cy;
+		this.dy=dy;
+		this.color=color;
+		this.val=val;
+		this.font=font;
+
+		this.draw=function()
+		{
+			ctx.beginPath();
+			ctx.font=this.font + 'px Arial';
+			ctx.fillStyle=this.color;
+			ctx.fillText(this.val,this.x,this.y);
+		}
+		this.update=function()
+		{
+			this.draw();
+			this.y-=this.dy;
+			if(this.y<=this.cy-20)
+			{
+				this.dy=0;
+			}
+			if(this.y<=70)
+			{
+				this.y=c.height-20;
+			}
+		}
+	}
+
+	var t1=new Text(100,300,300,0,'black','Hotel1',25);
+	var t2=new Text(100,330,330,0,'black','Hotel2',25);
+	var t3=new Text(100,360,360,0,'black','Hotel3',25);
+	var t4=new Text(100,390,390,0,'black','Hotel4',25);
+
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        t1.update();t2.update();t3.update();t4.update();
+    }
+
+    window.addEventListener('keyup',
+    	function(event)
+    	{
+    		if(event.keyCode=='40')
+    		{
+    			t1.dy=1;
+    			t1.cy=t1.y;
+    			if(t1.y<=200)
+    			{
+    				t1.color="lightblue";
+    				t1.font='40';
+    			}
+    			t2.dy=1;
+    			t2.cy=t2.y;
+    			if(t2.y<=365 && t2.y>=355)
+    			{
+    				t2.zoom();t2.chngcolor();
+    			}
+    			t3.dy=1;
+    			t3.cy=t3.y;
+    			if(t3.y<=365 && t3.y>=355)
+    			{
+    				t3.zoom();t3.chngcolor();
+    			}
+    			t4.dy=1;
+    			t4.cy=t4.y;
+    			if(t4.y<=365 && t4.y>=355)
+    			{
+    				t4.zoom();t4.chngcolor();
+    			}
+    		}
+    	});
+
+    animate();
+
+	var r=setTimeout(grow,600);
+	function grow()
+	{
+		document.getElementById('img').className='zoom';
+		document.getElementById('div1').className='grow1';
+	}
+	function show()
+	{
+		document.getElementById('div1').className='grow2';
+		document.getElementById('img').className='zoomin';
+		var u=setTimeout(fade,1200);
+	}
+	function fade()
+	{
+		document.getElementById('div1').style.opacity='0';
+	}
+</script>
+</html>

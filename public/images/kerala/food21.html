@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0px;
+        background-color: #c3ab94;
+        color: white;
+	}
+	#canvas1
+	{
+		border:1px solid black;
+	}
+    .div1
+    {
+    	position:absolute;
+    	top:500px;
+    	left:100px;
+    	font-size:30px;
+    	font-family:verdana;
+    	z-index:1;
+    }
+    #infodiv
+    {
+    	background-color:#f2f2f2;
+    	opacity:0.5;
+    	width:1345px;
+    	height:670px;
+    	position:absolute;
+    	top:0px;
+    	left:1350px;
+    	z-index:2;
+	}
+    .shift1
+    {
+    	animation-name:des;
+    	animation-duration:2s;
+    	animation-timing-function: ease-in;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes des{
+    	0%{left:1350px;}
+    	100%{left:0px;}
+    }
+    #img
+    {
+    	position:absolute;
+    	top:0px;
+    	left:1350px;
+    	transform:rotate(-20deg);
+    	animation-name:translate;
+    	animation-duration:20s;
+    	animation-iteration-count: infinite;
+    	animation-delay:1s;
+    }
+    @keyframes translate{
+    	0%{left:1350px;}
+    	100%{left:0px;}
+    }
+    
+</style>
+</head>
+<body>
+	<img id="img" width="110" height="150" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/animated-illustrations/chicken-and-mushroom.png" alt="image">
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+	<div id="infodiv"></div>
+	<button class="div1" onclick="show1()">Food1</button>
+	
+</body>
+<script>
+   
+	function show1()
+	{
+		document.getElementById('infodiv').className+="shift1";
+
+	}
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.984;
+	c.height=window.innerHeight*0.60;
+
+	function Ball(x,y,r,dy,color)
+  {
+	this.x=x;
+	this.y=y;
+	this.r=r;
+	this.dy=dy;
+    this.color=color;
+	this.draw=function()
+	{
+		ctx.beginPath();
+		ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+		ctx.fillStyle=this.color;
+		ctx.fill();
+	}
+	this.update=function()
+	{
+		this.draw();
+		this.y+=this.dy;
+		if(this.y>=400)
+			this.dy=0;
+	}
+  }
+var c1=new Ball(140,-100,40,2,'yellow');
+   function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        c1.update();
+    }
+animate();
+</script>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0;
+	}
+	.divmain
+	{
+	    border-radius: 40px;
+	    background-image:url('p2.png');
+	    background-color: #f6e9e9;
+		width:1310px;
+		height:617px;
+		position:absolute;
+		top:15px;
+		left:20px;
+		z-index:-10;
+	}
+	.p1
+	{
+		font-size:20px;
+		font-family:verdana;
+		font-weight:bold;
+		position:fixed;
+		top:60px;
+		left:50px;
+    }
+	.div1
+	{
+		border-left:3px solid black;
+		width:3px;
+		height:400px;
+		position:fixed;
+		left:80px;
+		top:150px;
+	}
+	.btn1
+	{
+		width:30px;
+		height:15px;
+		position:absolute;
+		top:70px;
+		left:-15px;
+	}
+	.btn2
+	{
+		width:30px;
+		height:15px;
+		position:absolute;
+		top:180px;
+		left:-15px;
+	}
+	.btn3
+	{
+		width:30px;
+		height:15px;
+		position:absolute;
+		top:300px;
+		left:-15px;
+	}
+	#move1
+	{
+		width:180px;
+		height:70px;
+		position:absolute;
+		top:300px;
+		left:570px;
+		z-index:-2;
+		font-size:30px;
+	}
+	#move2
+	{
+		width:180px;
+		height:70px;
+		position:absolute;
+		top:-40px;
+		left:570px;
+		z-index:-2;
+		font-size:30px;
+	}
+	#move3
+	{
+		width:180px;
+		height:70px;
+		position:absolute;
+		top:600px;
+		left:570px;
+		z-index:-2;
+		font-size:30px;
+	}
+	.a1
+	{
+		animation-name:down;
+		animation-duration:3s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes down
+	{
+		0%{transform:translate(0,0);}
+		100%{transform:translate(0,340px);}
+	}
+	.a2
+	{
+		animation-name:up;
+		animation-duration:3s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes up
+	{
+		0%{transform:translate(0,0);}
+		100%{transform:translate(0,-300px);}
+	}
+	#packages
+	{
+		background-color:pink;
+		width:1350px;
+		height:630px;
+		left:1350px;
+		top:0px;
+		position:absolute;
+		z-index:-1;
+	}
+	.view
+	{
+		animation-name:trans;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+		animation-timing-function: ease-in;
+	}
+	@keyframes trans
+	{
+		0%{left:1350px;}
+		100%{left:0px;}
+	}
+</style>
+</head>
+<body>
+<div class="divmain">
+    <p class="p1">STEP 1</p>
+	<div class="div1">
+		<button class="btn1" onclick="f()">3</button>
+		<button class="btn2" onclick="f1()">5</button>
+		<button class="btn3" onclick="f2()">4</button>
+	</div>
+	<p id="move1">3 Days</p>
+	<p id="move2">4 Days</p>
+	<p id="move3">5 Days</p>
+	<div id="packages">
+		<img src="i1.jpg" alt="img">
+		<img id="img1" src="i2.jpg" alt="img">
+	</div>
+</div>
+</body>
+<script>
+	function f()
+	{
+		document.getElementById('packages').className+='view';
+	}
+	function f1()
+	{
+		document.getElementById('img1').style.opacity="0.1";
+		document.getElementById("move1").className='a2';
+		document.getElementById("move2").className='a2';
+		document.getElementById("move3").className='a2';
+	}
+	function f2()
+	{
+		document.getElementById("move1").className='a1';
+		document.getElementById("move2").className='a1';
+		document.getElementById("move3").className='a1';
+	}
+</script>
+</html>

@@ -1,0 +1,23 @@
+body
+{
+background-image:url('/images/articles.jpg');
+background-size:cover;
+background-repeat:no-repeat;
+opacity:0.5;
+}
+.head
+{
+text-align:center;
+color:#1B2631  ;
+opacity:1;
+font-size:48px;
+font-family:verdana;
+font-weight:bold;
+}
+.articles
+{
+color:black;
+text-decoration:none;
+font-family:verdana;
+font-size:20px;
+}

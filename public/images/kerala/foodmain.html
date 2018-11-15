@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Kerala</title>
+<style>
+    body
+    {
+        overflow-x:hidden;
+    }
+	.divmain
+	{
+		margin:0px;
+        position: relative;
+        background-color: #c3ab94;
+        color: white;
+        height:700px;
+        width:1350px;
+	}
+   .line1
+   {
+        width:1350px;
+        height:30px;
+        position:absolute;
+        top:700px;
+        background-color:#c3ab94;
+   }
+    .block1
+    {
+        width:300px;
+        height:50px;
+        position:absolute;
+        top:700px;
+        left:500px;
+        border-radius:10%;
+        z-index:10;
+        background-color:#c3ab94;
+    }
+	.navbar 
+	{
+	   background-color: transparent;
+	   background: transparent;
+	   border-color: transparent;
+	   height:120px;
+    }
+    .navbar:hover
+	{
+       background-color:black;
+       opacity:0.7;
+  
+	}
+    .navbar li 
+    { 
+        font-family:Hand-Mocha-Mattari,arial,sans-serif;
+    	font-size:16px; 
+    	padding-top:20px;
+    	font-weight:bold;
+    } 
+    .home-spread__clouds {
+        position: absolute;
+        top: 0;
+        right: -1171px;
+        left: 0;
+        height: 240px;
+        margin-top:-40px;
+        background-image: url(food2.png);
+        background-size: 1171px 240px;
+        background-repeat: repeat-x;
+        animation: moveClouds 60s linear infinite;
+    }
+    @keyframes moveClouds{
+    0% {
+        transform: translate(0) scale(1);
+    }
+    50% {
+
+        transform: translate(-585.5px) scale(1.1);
+    }
+    100% {
+        transform: translate(-1171px) scale(1);
+    }
+    }
+    .home-spread__trees 
+    {
+        position: absolute;
+        top:-40px;
+        left: 0;
+        width: 100%;
+        height: 346px;
+        background-image: url(food1.png);
+        background-position: center;
+        background-size: auto 346px;
+        background-repeat: repeat;
+    }
+    .home-spread__fence 
+    {
+        position: absolute;
+        right: 0;
+        top:220px;
+        left: 0;
+        height: 100px;
+        background-image: url(food3.png);
+        background-size: auto 100%;
+        background-repeat: repeat-x;
+    }
+    
+    .home-spread__train-track 
+    {
+        position: absolute;
+        right: 0;
+        top:330px;
+        left: 0;
+        height: 20px;
+        background-image: url(food4.png);
+        background-size: 45px auto;
+        background-repeat: repeat-x;
+    }
+    .tent__front 
+    {
+        width:580px;
+        height:460px;
+        position:absolute;
+        top:14px;
+        left:2px;
+        z-index: 2;
+    }
+    .steak-train 
+    {
+        position: absolute;
+        top:150px;
+        left: 0;
+        z-index: 1;
+        width: 450px;
+        margin-bottom: 2px;
+        animation: moveTrain 24s linear infinite;
+    }
+    .steak-train__shadows 
+    {
+        position: absolute;
+        top:300px;
+        left: 17px;
+        max-width: 381px;
+        animation: moveTrain 24s linear infinite
+    }
+    @keyframes moveTrain
+    {
+
+        0% {
+            transform: translateX(-450px);
+        }
+        100% {
+            
+            transform: translateX(2000px);
+        }
+    }
+    .steak-train__smoke 
+    {
+        position: absolute;
+        top:120px;
+        left:290px;;
+        animation:  moveTrain 24s linear infinite ,opacity 1s linear infinite alternate;
+    }
+ 
+    @keyframes  opacity{
+
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    } 
+    .coconut-shy__stand
+    {
+        position:absolute;
+        top:390px;
+        left:1150px;
+    }
+    .home-spread__straw-bale-2
+    {
+        position:absolute;
+        top:430px;
+        left:390px;
+    }
+    .tent-back
+    {
+        position:absolute;
+        top:293px;
+        left:225px;
+        z-index:10;
+    }
+    .candle
+    {
+        position:absolute;
+        top:385px;
+        left:1150px;
+    }
+    .chair
+    {
+        position:absolute;
+        top:400px;
+        left:200px;
+        z-index:12;
+    }
+    .phone
+    {
+        z-index:13;
+        position:absolute;
+        top:470px;
+        left:140px;
+        animation-name:rotate;
+        animation-duration:2s;
+        animation-iteration-count: infinite;
+        animation-delay:1s;
+    }
+    @keyframes rotate
+    {
+        0%{transform:rotate(0deg);}
+        100%{transform:rotate(20deg);}
+    }
+    .phone-head
+    {
+        position:absolute;
+        top:469px;
+        left:140px;
+        animation-name:rotatehead;
+        animation-duration:2s;
+        animation-iteration-count: infinite;
+        animation-delay:1s;
+        z-index:20;
+    }
+     @keyframes rotatehead
+    {
+        0%{transform:rotate(0deg) scale(1);}
+        100%{transform:rotate(20deg) scale(1.2);}
+    }
+</style>
+</head>
+<body >
+    <div class="divmain">
+	<div class="navbar transparent navbar-inverse navbar-static-top hr">
+    <div class="navbar-brand logo"></div>
+    <div class="navbar-brand-right">
+    </div>
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav mineul" style="font-size:17px;margin-top:9px; color:white;">
+               <li><a href='/experiences'>Experiences</a></li>
+       <li><a href='/about'>About</a></li>
+        <li><a href='/whatshappening'>What's Happening</a></li>
+        <li><a href='/seasonal'>Seasonal</a></li>
+        <li><a href='/planyourtrip'>Plan Your Trip</a></li>
+        <li><a href='/gallery'>Gallery</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="home-spread__clouds"></div>
+<div class="home-spread__trees"></div>
+<div class="home-spread__fence"></div>
+<div class="home-spread__train-track"></div>
+<img class="home-spread__grass-1" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/grass.png">
+<img class="tent__front" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/tent-front.png" >
+<img class="steak-train__shadows" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/shadows.png">
+<img class="steak-train__smoke" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/smoke.png">
+<img class="steak-train" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/train.png">
+<img class="home-spread__straw-bale-2" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/straw-bale-2.png">
+<img class="coconut-shy__stand" alt="" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/coconut-stand.png">
+<img class="tent-back" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/tent-back.png ">
+<img class="candle" src=" https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/coconut.png ">
+<img src="chair.png" class="chair">
+<img class="phone" src=" https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/gramophone.png">
+<img class="phone-head" src="https://www.toms-pies.co.uk/wp-content/themes/toms-pies/images/home/gramophone-horn.png">
+<div class="line1"></div>
+<div class="block1"></div>
+</div>
+</body>
+</html>

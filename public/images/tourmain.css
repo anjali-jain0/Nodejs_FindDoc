@@ -1,0 +1,36 @@
+#anja1
+	{
+		width:1670px;
+		height:640px;
+		position:absolute;
+		top:0px;
+		left:-200px;
+	}
+	#anja2
+	{
+		width:1200px;
+		height:600px;
+		position:absolute;
+		background-color:white;
+		left:0px;
+		top:500px;
+		z-index:0;
+		transform:skewY(15deg);
+	}
+	#anja3
+	{
+		width:500px;
+		height:250px;
+		box-shadow: 5px 10px 8px #888888;
+		position:absolute;
+		top:630px;
+		right:170px;
+		background-color:white;
+		z-index:0;
+	}
+	#gallery
+	{
+		position:absolute;
+		top:900px;
+		left:0px;
+	}

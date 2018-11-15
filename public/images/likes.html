@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+	<img src="1.jpg">
+	<p id="liked">20</p>
+	<button onclick="like()" >Like</button>
+</body>
+<script>
+	var liked=20;
+	localStorage.setItem('liked',20);
+	function like()
+	{
+		localStorage.setItem('liked',Number(localStorage.getItem('liked'))+1);
+		document.getElementById('liked').innerHTML=Number(localStorage.getItem('liked'));
+	}
+</script>
+</html>

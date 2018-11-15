@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	#maindiv
+	{
+		border-radius:50%;
+		width:100px;
+		height:100px;
+		background-color:orange;
+		position:absolute;
+		top:500px;
+		left:100px;
+		display:none;
+	}
+	#infodiv
+    {
+    	background-color:#f2f2f2;
+    	opacity:0.5;
+    	width:1350px;
+    	height:670px;
+    	position:absolute;
+    	top:0px;
+    	left:-1350px;
+    	z-index:2;
+
+    }
+    .shift1
+    {
+       animation-name:des;
+    	animation-duration:2s;
+    	animation-timing-function: ease-in;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes des{
+    	0%{left:-1350px;}
+    	100%{left:0px;}
+    }
+    
+</style>
+</head>
+<body>
+	<img src="festival1.jpg" alt="image">
+	<img onclick="f()" style="width:250px;height:300px;position:absolute;top:150px;left:80px;transform:rotate(-10deg);" src="festival2.jpg" alt="image">
+	<div onclick="show1()" id="maindiv"></div>
+	<div id="infodiv"></div>
+</body>
+<script>
+
+	function show1()
+	{
+		document.getElementById('infodiv').className+='shift1';
+
+	}
+	function f()
+	{
+		document.getElementById("maindiv").style.display="block";
+	}
+</script>
+</html>

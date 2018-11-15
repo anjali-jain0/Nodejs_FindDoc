@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		background-color:#d9bbba;
+	}
+	#form
+	{
+		width:500px;
+		transform:scaleX(0.1);
+		height:600px;
+		background-color:white;
+		border-radius:5%;
+		position:absolute;
+		top:20px;
+		left:400px;
+	}
+	.anim
+	{
+		animation-name:anim;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes anim{
+		0%{transform:scaleX(0.1);}
+		100%{transform:scaleX(1);}
+	}
+</style>
+</head>
+<body>
+	<div id="form"></div>
+</body>
+<script>
+	var r=setTimeout(f,2000);
+	function f()
+	{
+		document.getElementById('form').className='anim';
+	}
+</script>
+</html>

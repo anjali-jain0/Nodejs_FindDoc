@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<link href="/images/doctor3.css" rel="stylesheet" type="text/css" />
+<link href="/images/project5style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">FindaDoc</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+            <li><a href="/browse">Browse Doctors</a></li>
+            <li><a href="/adddoctors">Add Doctors</a></li>
+            <li><a href="/addcategory">Add Category</a></li>
+          </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br><br><br>
+<br>
+<h3 class="chead">Categories</h3>
+<br>
+<% for(var j=0;j<categories.length;j++){ %>
+	<span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
+<% } %>
+<h1 class="head">FindaDoc</h1>
+<h3 class="head">Search for local doctors</h3>
+
+<h1 class="add">Add Doctor</h2>
+<div class="container">
+
+<form  method="post" action="/adddoctors">
+<div class="form-group">
+<span class="heading">Full Name:</span>
+<input class="form-control" type="text" name='name'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Category:</span>
+<select class="form-control" name="category">
+<% for(var j=0;j<categories.length;j++){ %>
+	<option  value="<%= categories[j].category %>"><%= categories[j].category %></option>
+<% } %>
+</select><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Accepting :</span>
+<select class="form-control" name="accepting">
+<option value='yes'>Yes</option>
+<option value="no">No</option>
+</select><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Practice Name:</span>
+<input class="form-control" type="text" name='pname'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Graduation Year:</span>
+<input class="form-control" type="text" name='year'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">City:</span>
+<input class="form-control" type="text" name='city'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">State:</span>
+<select class="form-control" name="states">
+<option value="Rajasthan">Rajasthan</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Maharashtra">Maharashtra</option>
+</select><br>
+</div>
+<div class="form-group">
+<span class="heading">Zipcode:</span>
+<input class="form-control" type="text" name='code'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Address:</span>
+<input class="form-control" type="text" name='address'><br><br>
+</div>
+<div class="form-group">
+<span class="heading">Phone Number:</span>
+<input class="form-control" type="text" name='phnnumber'><br><br>
+</div>
+<button type="submit" class="btn btn-success">Add Doctor </button>
+<br><br><br>
+</form>
+</div>
+</body>
+</html>

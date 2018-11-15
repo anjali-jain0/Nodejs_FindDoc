@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		background-color:#d9bbba;
+	}
+	#form
+	{
+		width:500px;
+		transform:scaleX(0.1);
+		height:600px;
+		background-color:white;
+		border-radius:5%;
+		position:absolute;
+		top:20px;
+		left:420px;
+	}
+	.anim
+	{
+		animation-name:anim;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes anim{
+		0%{transform:scaleX(0.1);}
+		100%{transform:scaleX(1);}
+	}
+	#img1
+	{
+		width:280px;
+		height:280px;
+		position:absolute;
+		top:110px;
+		left:430px;
+		transform:rotate(-36deg);
+		z-index:-1;
+		opacity:0;
+	}
+	.girl
+	{
+		animation-name:girl;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes girl{
+		0%{opacity:0;left:430px;}
+		100%{opacity:1;left:220px;}
+	}
+	#img2
+	{
+		width:280px;
+		height:280px;
+		position:absolute;
+		top:330px;
+		left:560px;
+		transform:rotate(45deg);
+		z-index:-1;
+		opacity:0;
+	}
+	.boy
+	{
+		animation-name:boy;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes boy{
+		0%{opacity:0;left:560px;}
+		100%{opacity:1;left:820px;}
+	}
+</style>
+</head>
+<body>
+
+	<div id="form"></div>
+	<img id="img1" src='character10.png'>
+	<img id="img2" src='character17.png'>
+
+</body>
+<script>
+	var r=setTimeout(f,1000);
+	function f()
+	{
+		document.getElementById('form').className='anim';
+	}
+    var s=setTimeout(f1,1300);
+    function f1()
+	{
+		document.getElementById('img1').className='girl';
+		document.getElementById('img2').className='boy';
+	}
+</script>
+</html>

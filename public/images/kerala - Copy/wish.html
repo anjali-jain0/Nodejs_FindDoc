@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#lock {
+  font-size: 8px;
+  position: relative;
+  width: 18em;
+  height: 13em;
+  border-radius: 2em;
+  top: 10em;
+  box-sizing: border-box;
+  border: 1em solid black;
+  border-right-width: 7.5em;
+  border-left-width: 7.5em;
+  margin: 0 0 6rem 0;
+}
+#lock2 {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: 1em solid black;
+  border-bottom:none;
+  width: 14em;
+  height: 12em;
+  left: 50%;
+  margin-left: -7em;
+  top: -12em;
+  border-top-left-radius: 7em;
+  border-top-right-radius: 7em;
+}
+#lock:hover #lock2
+{
+	transform:rotate(35deg);
+}
+#circle1
+{
+	border-radius:50%;
+	width:500px;
+	height:500px;
+	position:absolute;
+	top:60px;
+	left:300px;
+	border:1px solid black;
+}
+#circle1:hover
+{
+	border-style:dashed;
+	transform:scale(1.04);
+}
+#circle2
+{
+	border-radius:50%;
+	width:400px;
+	height:400px;
+	position:absolute;
+	top:50px;
+	left:50px;
+	border:1px solid black;
+	z-index:2;
+}
+#circle2:hover
+{
+	border-style:dashed;
+	transform:scale(1.04);
+}
+#circle3
+{
+	border-radius:50%;
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:50px;
+	left:50px;
+	border:1px solid black;
+	z-index:3;
+}
+#circle3:hover
+{
+	border-style:dashed;
+	transform:scale(1.04);
+}
+#circle3:hover #c1
+{
+	display:block;
+}
+#c1
+{
+	width:30px;
+	height:30px;
+	background-color:white;
+	border:1px solid black;
+	border-radius:50%;
+	position:absolute;
+	left:100px;
+	top:-12px;
+	display:none;
+}
+#line
+{
+	width:250px;
+	border:0.5px solid black;
+	position:absolute;
+	top:-10px;
+	left:30px;
+	transform:rotate(-10deg);
+	opacity:0;
+}
+#bc1
+{
+	width:50px;
+	height:50px;
+	background-color:white;
+	border:1px solid black;
+	border-radius:50%;
+	position:absolute;
+	top:-25px;
+	left:250px;
+	opacity:0;
+}
+#c1:hover #line
+{
+	animation-name:grow;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+@keyframes grow{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+#c1:hover #bc1
+{
+	animation-name:grow2;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+@keyframes grow2{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+#text
+{
+	font-size:20px;
+	position:absolute;
+	top:-10px;
+	left:60px;
+	transform:rotate(10deg);
+}
+#t1
+{
+	font-size:30px;
+	position:absolute;
+	top:100px;
+	right:100px;
+	transform:translateY(0px);
+}
+#t2
+{
+	font-size:30px;
+	position:absolute;
+	top:200px;
+	right:100px;
+	transform:translateY(0px);
+}
+#t3
+{
+	font-size:30px;
+	position:absolute;
+	top:300px;
+	right:100px;
+	transform:translateY(0px);
+}
+#t4
+{
+	font-size:30px;
+	position:absolute;
+	top:400px;
+	right:100px;
+	transform:translateY(0px);
+}
+#t5
+{
+	font-size:30px;
+	position:absolute;
+	top:500px;
+	right:100px;
+	transform:translateY(0px);
+}
+#box
+{
+	border:1px solid lightblue;
+	width:50px;
+	height:50px;
+	position:absolute;
+	top:325px;
+	right:75px;
+}
+.above1
+{
+	animation-name:above1;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes above1{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(-100px);}
+}
+.above2
+{
+	animation-name:above2;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes above2{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(-100px);}
+}
+.above3
+{
+	animation-name:above3;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes above3{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(-100px);}
+}
+.above4
+{
+	animation-name:above4;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes above4{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(-100px);}
+}
+.above5
+{
+	animation-name:above5;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes above5{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(-100px);}
+}
+.below1
+{
+	animation-name:below1;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes below1{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(100px);}
+}
+.below2
+{
+	animation-name:below2;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes below2{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(100px);}
+}
+.below3
+{
+	animation-name:below3;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes below3{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(100px);}
+}
+.below4
+{
+	animation-name:below4;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes below4{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(100px);}
+}
+.below5
+{
+	animation-name:below5;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+}
+@keyframes below5{
+	0%{transform:translateY(0px);}
+	100%{transform:translateY(100px);}
+}
+</style>  
+</head>
+<body>
+	<div id="lock">
+		<div id="lock2"></div>
+	</div>
+	<div id="circle1">
+	<div id="circle2">
+	<div id="circle3">
+		<div id="c1">
+			<div id="line"><div id="bc1"><p id="text">hello</p></div></div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<div id="box"></div>
+    <p id="t1">1</p>
+    <p id="t2">2</p>
+    <p id="t3">3</p>
+    <p id="t4">4</p>
+    <p id="t5">5</p>
+</body>
+<script>
+   
+    function r1()
+    {
+    	document.getElementById('t1').className="";
+    }
+	window.addEventListener("keyup",
+		function(event)
+		{
+		if(event.keyCode=='38')
+		{
+		document.getElementById('t1').className="above1";
+		 var r=setTimeout(r1,2000);
+		document.getElementById('t2').className="above2";
+		document.getElementById('t3').className="above3";
+		document.getElementById('t4').className="above4";
+		document.getElementById('t5').className="above5";
+		}
+		if(event.keyCode=='40')
+		{
+		document.getElementById('t1').className="below1";
+		document.getElementById('t2').className="below2";
+		document.getElementById('t3').className="below3";
+		document.getElementById('t4').className="below4";
+		document.getElementById('t5').className="below5";
+		}
+		});
+
+</script>
+</html>

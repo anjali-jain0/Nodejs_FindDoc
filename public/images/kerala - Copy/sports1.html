@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+	    background-image:url('im.jpg');
+	    background-size:cover;
+	    background-repeat:no-repeat;
+		margin:0px;
+	}
+	#div1
+	{
+		background-color:black;
+		opacity:0.5;
+		width:1500px;
+		height:1200px;
+		border-radius:50%;
+		position:absolute;
+		top:-250px;
+		left:-1500px;
+		transform:scale(0);
+		
+	}
+	.trans1
+	{
+		animation-name:slide1;
+		animation-duration:1s;
+		animation-delay:0.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes slide1
+	{
+		0%{left:-1500px;transform:scale(0);}
+		100%{left:-450px;transform:scale(1);}
+	}
+	#div2
+	{
+		background-color:black;
+		opacity:0.8;
+		width:1500px;
+		height:1200px;
+		border-radius:50%;
+		position:absolute;
+		top:-250px;
+		left:-1500px;
+		transform:scale(0);
+	}
+	.p1
+	{
+		font-size:30px;
+		font-family:verdana;
+		color:white;
+		position:absolute;
+		top:50px;
+		left:100px;
+		opacity:0;
+		animation-name:text;
+		animation-delay:1.6s;
+		animation-duration:0.8s;
+		animation-fill-mode:forwards;
+	}	
+	@keyframes text{
+		0%{top:50px;opacity:0;}
+		100%{top:60px;opacity:1;}
+	}
+	.trans2
+	{
+		animation-name:slide2;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+		animation-delay:1s;
+	}
+	@keyframes slide2
+	{
+		0%{left:-1500px;transform:scale(0);}
+		60%{left:-560px;transform:scale(1.05);}
+		100%{left:-600px;transform:scale(1);}
+	}
+	.nontrans1
+	{
+		animation-name:slide3;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+
+	}	
+	@keyframes slide3
+	{
+		0%{left:-450px;transform:scale(1);}
+		100%{left:-1500px;transform:scale(0);}
+	}
+	.nontrans2
+	{
+		animation-name:slide4;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+	}	
+	@keyframes slide4
+	{
+		0%{left:-600px;transform:scale(1);}
+		100%{left:-1500px;transform:scale(0);}
+	}
+	.btn1
+	{
+		position:absolute;
+		top:160px;
+		left:80px;
+		width:160px;
+		height:23px;
+		background-color:yellow;
+		cursor:pointer;
+		opacity:0;
+		animation-name:btn;
+		animation-delay:1.6s;
+		animation-duration:0.7s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes btn{
+		0%{top:160px;opacity:0;}
+		100%{top:205px;opacity:1;}
+	}	
+	#right
+	{
+		width:1000px;
+		height:660px;
+		position:absolute;
+		top:0px;
+		left:-1030px;
+		background-color:pink;
+		border:1px solid black;
+		z-index:5;
+	}
+	#left
+	{
+		width:400px;
+		height:660px;
+		position:absolute;
+		top:0px;
+		right:-400px;
+		background-color:pink;
+		border:1px solid black;
+		z-index:5;
+	}
+	.rightanim
+	{
+		animation-name:rightanim;
+		animation-duration:1.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes rightanim{
+		0%{left:-1030px;}
+		100%{left:0px;}
+	}
+	.leftanim
+	{
+		animation-name:leftanim;
+		animation-duration:1.5s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes leftanim{
+		0%{right:-400px;}
+		100%{right:0px;}
+	}
+	#oval1
+	{
+		border-radius:50%;
+		width:300px;
+		height:200px;
+		background-color:black;
+		position:absolute;
+		top:300px;
+		left:400px;
+	}
+	#text1
+	{
+		font-size:30px;
+		position:absolute;
+		top:200px;
+		left:200px;
+		display:none;
+	}
+	#right:hover #text1
+	{
+   		display:block;
+	}
+</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<p class="p1">Sports</p>
+	<div onclick="f()" class="btn1"></div>
+	<div id="right">
+		<div id="oval1"></div>
+		<p id="text1">Hello</p>
+	</div>
+	<div id="left"></div>
+</body>
+<script>
+	window.onload=function() {myFunction()};
+
+    function myFunction() {
+        document.getElementById('div1').className='trans1';
+        document.getElementById('div2').className='trans2';
+        }
+    function f()
+    {
+    	 document.getElementById('div1').className='nontrans1';
+        document.getElementById('div2').className='nontrans2';
+        document.getElementById("left").className="leftanim";
+        document.getElementById("right").className="rightanim";
+    }
+</script>
+</html>

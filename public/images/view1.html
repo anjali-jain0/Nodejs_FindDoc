@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		overflow:hidden;
+	}
+	.maincircle
+	{
+		border-radius:50%;
+		width:550px;
+		height:550px;
+		background-color:lightblue;
+		position:fixed;
+		top:45px;
+		left:1100px;
+	}
+	#c1
+	{
+		border-radius:50%;
+		height:70px;
+		width:70px;
+		position:absolute;
+		top:5px;
+		left:220px;
+		background-color:lightgrey;
+		border:10px solid lightblue;
+	}
+	.class1
+	{
+		animation-name:mv1;
+		animation-duration:2s;
+	}
+	@keyframes mv1
+	{
+		0%{top:5px left:220px;}
+		100%{top:30px;left:100px;}
+	}
+	#c1:hover
+	{
+		transform:scale(1.5);
+	}
+	#c2
+	{
+		border-radius:50%;
+		height:70px;
+		width:70px;
+		position:absolute;
+		top:90px;
+		left:80px;
+		background-color:lightgrey;
+	}
+	#c2:hover
+	{
+		transform:scale(1.5);
+	}
+	#c3
+	{
+		border-radius:50%;
+		height:70px;
+		width:70px;
+		position:absolute;
+		top:200px;
+		left:20px;
+		background-color:lightgrey;
+	}
+	#c3:hover
+	{
+		transform:scale(1.5);
+	}
+	#c4
+	{
+		border-radius:50%;
+		height:70px;
+		width:70px;
+		position:absolute;
+		top:330px;
+		left:30px;
+		background-color:lightgrey;
+	}
+	#c4:hover
+	{
+		transform:scale(1.5);
+	}
+	#c5
+	{
+		border-radius:50%;
+		height:70px;
+		width:70px;
+		position:absolute;
+		top:450px;
+		left:150px;
+		background-color:lightgrey;
+	}
+    #c5:hover
+	{
+		transform:scale(1.5);
+	}
+	#center
+	{
+		background-color:pink;
+		width:550px;
+		height:550px;
+		position:absolute;
+		top:0px;
+		left:0px;
+		border-radius:50%;
+		transform:scale(0);
+	}
+	.scale
+	{
+		animation-name:scale;
+		animation-duration:0.7s;
+	}
+	@keyframes scale
+	{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	#main
+	{
+		border-radius:50%;
+		width:300px;
+		height:300px;
+		position:absolute;
+		top:100px;
+		left:200px;
+		background-color:lightblue;
+		transform:scale(0);
+	}
+	.grow
+	{
+		animation-name:sca;
+		animation-duration:0.6s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes sca{
+		0%{transform:scale(0);}
+		100%{transform:scale(1);}
+	}
+	#card
+	{
+		width:600px;
+		height:500px;
+		background-color:black;
+		position:absolute;
+		top:100px;
+		left:100px;
+
+	}
+	#above1
+	{
+		width:600px;
+		height:500px;
+		background-color:white;
+		opacity:0.5;
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	.shl
+	{
+		animation-name:shiftl;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes shiftl{
+		0%{left:0px;}
+		100%{left:-600px;}
+	}
+	.shr
+	{
+		animation-name:shiftr;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes shift{
+		0%{left:0px;}
+		100%{left:-600px;}
+	}
+	.left
+	{
+		width:150px;
+		height:500px;
+		background-color:lightgreen;
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	.cen1
+	{
+		width:150px;
+		height:500px;
+		background-color:lightgreen;
+		position:absolute;
+		top:0px;
+		left:150px;
+	}
+	.cen2
+	{
+		width:150px;
+		height:500px;
+		background-color:lightgreen;
+		position:absolute;
+		top:0px;
+		left:300px;
+	}
+	.right
+	{
+			width:150px;
+			height:500px;
+			background-color:lightgreen;
+			position:absolute;
+			top:0px;
+			left:450px;
+	}
+</style>
+</head>
+<body>
+	<div id="main"></div>
+	<div class="maincircle">
+		<div onclick="f1()" id="c1">1</div>
+		<div id="c2">2</div>
+		<div id="c3">3</div>
+		<div id="c4">4</div>
+		<div id="c5">5</div>
+		<div id="center"></div>
+	</div>
+	<div id="card">
+		<div class="left"></div>
+		<div class="cen1"></div>
+		<div class="cen2"></div>
+		<div class="right"></div>
+		<div id="above1"></div>
+	</div>
+	<button  id="bprevious">Previous</button>
+	<button id="bnext">Next</button>
+</body>
+<script>
+		function f1()
+		{
+			document.getElementById("c1").className='class1';
+		}
+	    
+</script>
+</html>

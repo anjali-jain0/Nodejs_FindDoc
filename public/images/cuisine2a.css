@@ -1,0 +1,86 @@
+
+body, html {
+    height: 100%;
+    margin:0;
+}
+
+.parallax {
+    
+    
+
+    /* Full height */
+    height: 64%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#hello
+{
+    background-image: url('/images/indian4.jpg');
+}
+#hello1
+{
+    background-image: url('/images/f1.jpg');
+}
+#hello2
+{
+    background-image: url('/images/chinese1.jpg');
+}
+#text
+{
+    padding: 0px;
+    width:90%;
+    height:300px;
+    background-color:orange;
+    opacity: 0.6;
+    float: left;
+    padding-left: 5px;
+}
+#dvid{
+    padding: 0px;
+    margin: 0px;
+    width:702px;
+    height:400px;
+    float:right;
+    background-color: grey;
+    opacity:0.7;
+}
+
+#text1
+{
+    padding: 0px;
+    width:90%;
+    height:400px;
+    background-color:black;
+    opacity: 0.8;
+    float: left;
+    padding-left: 5px;
+    color:white;
+}
+
+#text2
+{
+    padding: 0px;
+    width:90%;
+    height:400px;
+    background-color:#FFE4B5;
+    opacity: 0.8;
+    float: left;
+    padding-left: 5px;
+    color:black;
+}
+#othdiv
+{
+    height:400px;width:100%;background-color:orange;font-size:24px;font-family:Comic Sans MS;opacity:0.8;
+}
+#othdiv1
+{
+    height:400px;width:100%;background-color:black;font-size:24px;font-family:Comic Sans MS;opacity:0.7;
+}
+#othdiv2
+{
+    height:400px;width:100%;background-color:#FFE4B5;font-size:24px;font-family:Comic Sans MS;opacity:1;
+}

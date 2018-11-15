@@ -1,0 +1,17 @@
+.head
+{
+margin-left:370px;
+font-family:verdana;
+}
+
+.list
+{
+font-family:verdana;
+font-size:18px;
+width:1000px;
+height:200px;
+background-color:#D7DBDD;
+position:fixed;
+left:170px;
+top:50%;
+}

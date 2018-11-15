@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body
+	{
+		overflow:hidden;
+	}
+	#maindiv
+	{
+		width:170px;
+		height:220px;
+		background-color:orange;
+		position:fixed;
+		top:410px;
+		left:1150px;
+		transform:rotate(-45deg);
+		z-index:10;
+	}
+	.anidiv
+	{
+		animation-name:shake;
+		animation-duration:0.5s;
+		animation-iteration-count:4;
+	}
+	@keyframes shake
+	{
+	0% { transform: translate(1px, 1px) rotate(-45deg); }
+    10% { transform: translate(-1px, -2px) rotate(-46deg); }
+    20% { transform: translate(-3px, 0px) rotate(-44deg); }
+    30% { transform: translate(3px, 2px) rotate(-45deg); }
+    40% { transform: translate(1px, -1px) rotate(-44deg); }
+    50% { transform: translate(-1px, 2px) rotate(-46deg); }
+    60% { transform: translate(-3px, 1px) rotate(-45deg); }
+    70% { transform: translate(3px, 1px) rotate(-46deg); }
+    80% { transform: translate(-1px, -1px) rotate(-44deg); }
+    90% { transform: translate(1px, 2px) rotate(-45deg); }
+    100% { transform: translate(1px, -2px) rotate(-46deg); }
+	}
+	#img1
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg1
+	{
+		animation-name:trans1;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+	}
+	@keyframes trans1
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:500px;left:600px;}
+	}
+	#img2
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg2
+	{
+		animation-name:trans2;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+		animation-delay:0.5s;
+	}
+	@keyframes trans2
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:200px;left:700px;}
+	}
+	#img3
+	{
+		width:150px;
+		height:200px;
+		position:fixed;
+		top:420px;
+		left:1160px;
+		transform:rotate(-50deg);
+	}
+	.aniimg3
+	{
+		animation-name:trans3;
+		animation-duration:2s;
+		animation-fill-mode:forwards;
+		animation-delay:1s;
+	}
+	@keyframes trans3
+	{
+		0%{top:420px;left:1160px;}
+		100%{top:70px;left:970px;}
+	}
+</style>
+</head>
+<body>
+	<button onclick="f1()">Start</button>
+	<div id="maindiv"></div>
+	<img id="img1" src="i1.jpg" alt="img">
+    <img id="img2" src="i2.jpg" alt="img">
+    <img id="img3" src="i3.jpg" alt="img">
+</body>
+<script>
+	function f1()
+	{
+		document.getElementById('maindiv').className="anidiv";
+		document.getElementById('img1').className="aniimg1";
+		document.getElementById('img2').className="aniimg2";
+		document.getElementById('img3').className="aniimg3";
+
+	}
+</script>
+</html>

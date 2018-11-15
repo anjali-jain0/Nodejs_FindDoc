@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body
+	{
+		margin:0px;
+	}
+	.contain
+	{
+		width:300px;
+		height:100px;
+		background-color:lightgrey;
+		position:absolute;
+		top:400px;
+		left:450px;
+		animation-name:start;
+		animation-duration:4s;
+		animation-fill-mode:forwards;
+		opacity:0;
+		z-index:-1;
+	}
+	@keyframes start{
+		0%{top:400px;opacity:0px;z-index:-1;}
+		100%{top:100px;opacity:1;z-index:0;}
+	}
+    .img2
+    {
+    	position:absolute;
+    	top:450px;
+    	left:-550px;
+    	width:2400px;
+    	height:1000px;
+    	border-radius:50%;
+    	z-index:-1;
+    }
+    #divs
+    {
+    	border-radius:50%;
+    	height:35px;
+    	width:35px;
+    	margin-top:1200px;
+    	margin-left:400px;
+        background-color:#262626;
+    	opacity:0;
+    	box-shadow: 0 0 0 rgba(204,169,44, 0.7);
+    }
+    .div1
+    {
+    	animation-name:translate;
+    	animation-duration:2s;
+    	animation-fill-mode:forwards;
+    }
+    @keyframes translate{
+    	0%{margin-top:1200px;opacity:0;}
+    	100%{margin-top:700px;opacity:1;}
+    }
+    @keyframes pulse
+    {
+
+	  0% {
+	  box-shadow: 0 0 0 0 rgba(204,169,44, 0.7)
+	  }
+	  50% {
+	      box-shadow: 0 0 0 15px rgba(204,169,44, 0)
+	  }
+	  100% {
+	      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+	  }
+	}
+   #flip
+   {
+   	height:400px;
+   	width:300px;
+   	position:absolute;
+   	top:1500px;
+   	left:100px;
+   	transform-style: preserve-3d;
+	transition:transform 2s ;
+   }
+	#flip:hover {
+	  transform: rotateY(180deg);
+	}
+	.card1 {
+	  backface-visibility: hidden;
+	  color: #0087cc;
+	   line-height: 150px;
+	  text-align: center;
+	  position: absolute;
+	  width:300px;
+	  height:400px;
+	  background-color:pink;
+	 top:0px;
+	 left:0px;
+	}
+	.card2 {
+		 width:300px;
+	  height:400px;
+	  background-color:lightgrey;
+	  color: #0087cc;
+	  line-height: 150px;
+	  text-align: center;
+	  transform: rotateY(180deg);
+	  position: absolute;
+	  top:0px;
+	 left:0px;
+	}
+	.smoke
+	{
+		margin-top:300px;
+		margin-left:400px;
+		height:900px;
+		width:1100px;
+		opacity:1;
+		animation-name:smoke;
+		animation-duration:4s;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
+		
+	}
+	@keyframes smoke
+	{
+		0%{margin-top:300px;}
+		100%{margin-top:50px;}
+	}
+	#main
+	{
+		width:1370px;
+		height:640px;
+		filter:brightness(0.8) contrast(0.8) saturate(0.7);
+	}
+	#main2
+	{
+		width:700px;
+		height:400px;
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index:2;
+		filter:brightness(0.8) contrast(0.8) saturate(0.7);
+	}
+	#footer
+	{
+		position:absolute;
+		top:10px;
+		left:0px;
+		filter:brightness(0.7) contrast(0.7) saturate(0.7);
+	}
+	#ex1
+	{
+		width:600px;
+		height:200px;
+		position:absolute;
+		top:800px;
+		left:300px;
+		border-radius:4%;
+		background-color:rgba(239,77,92,1);
+	}
+	#ex2
+	{
+		width:600px;
+		height:200px;
+		position:absolute;
+		top:1050px;
+		left:300px;
+		border-radius:4%;
+		background-color:rgba(255,178,56,1);
+	}
+</style>
+</head>
+<body>
+	<img id="main" src="kerala15.gif">
+	<img id="main2" src="ash.gif">
+	<div class="contain">
+	<p>TEXT write here.... </p>
+	</div>
+	<img class="img2" src="explore2.jpg" alt="img">
+	<div data-toggle="popover"  id="divs" ></div>
+	<div id="flip">
+		<div class="card1">front</div>
+		<div class="card2 ">back</div>
+	</div>
+	<div style="width:1350px;height:700px;position:absolute;         top:1970px;background-color:black;opacity:0.9;">
+	<img class="smoke" src="smoke2.jpg" alt="image">
+	<img id="footer" src='mainmenu.gif'>
+	<div id="ex1"></div>
+	<div id="ex2"></div>
+</div>
+</body>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({title: "Header", content: "Blabla", trigger: "hover"});    
+  
+});
+</script>
+
+<script>
+	window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+
+            document.getElementById("divs").className="div1"
+    }
+        else {
+            document.getElementById("divs").className="";
+        }
+    }
+
+</script>
+</html>

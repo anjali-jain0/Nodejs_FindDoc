@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+<style>
+		body
+		{
+			margin:0;
+			overflow-y:hidden;
+		}
+		.img
+		{
+			width:1700px;
+			height:640px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			animation-name:trans;
+			animation-duration:20s;
+			animation-fill-mode:forwards;
+		}
+        @keyframes trans{
+        	0%{left:0px;}
+        	100%{left:-330px;}
+        }
+		#canvas1
+	    {
+	    	position:fixed;
+	    	top:0px;
+	    	left:0px;
+			border:1px solid black;
+		}
+		#t1
+		{
+			font-size:20px;
+			position:absolute;
+			top:10px;
+			left:940px;
+			z-index:2;
+		}
+		#t2
+		{
+			font-size:20px;
+			position:absolute;
+			top:45px;
+			left:1085px;
+			z-index:2;
+		}
+		#t3
+		{
+			font-size:20px;
+			position:absolute;
+			top:10px;
+			left:1240px;
+			z-index:2;
+		}
+</style>
+</head>
+<body>
+	<p id="t1"><a href='mainmenu.html'>Menu</a></p>
+	<p id="t2">Login</p>
+	<p id="t3">Signup</p>
+	<img class="img" src="game9.jpg">
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+</body>
+<script>
+    var i=0;
+	localStorage.setItem('i',0);
+	var j=0;
+	localStorage.setItem('j',0);
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*2;
+	c.height=window.innerHeight*0.97;
+    
+    function Rect(x,y,w,h,dx,cx)
+    {
+    	this.x=x;
+    	this.y=y;
+    	this.w=w;
+    	this.h=h;
+    	this.dx=dx;
+    	this.cx=cx;
+    	this.draw=function()
+    	{
+    		ctx.beginPath();
+		    ctx.rect(this.x,this.y,this.w,this.h);
+		    ctx.stroke();
+	    }
+    	this.update=function()
+    	{
+    		this.draw();
+    		this.x-=this.dx;
+    		if(this.x<=this.cx-20 || this.x>=this.cx+20)
+    		{
+    			this.dx=-this.dx;
+    		}
+    	}
+    }
+
+    function Ball(x,y,w,h,dx,dy,color,type)
+  {
+  	this.type=type;
+  	if(type=='image')
+  	{
+  		this.image=new Image();
+  		this.image.src=color;
+  	}
+	this.x=x;
+	this.y=y;
+	this.w=w;
+	this.h=h;
+	this.dx=dx;
+	this.dy=dy;
+	this.draw=function()
+	{
+		ctx.beginPath();
+		if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.w, this.h);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.w, this.h);
+        }
+    }
+	this.update=function()
+	{
+		this.draw();
+		this.x+=this.dx;
+		this.y+=this.dy;
+	}
+  }
+
+  function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+  	var x1=0;x2=0;y1=0;y2=0;var xD=0;yD=0;
+   function getDistance(x1,x2,y1,y2)
+   {
+   	xD=x2-x1;
+   	yD=y2-y1;
+   	return Math.sqrt(Math.pow(xD,2) + Math.pow(yD,2));
+   }
+   var c5=new Ball(900,-40,350,170,-1.5,0.1,'dragon.gif','image');
+   var c1=new Ball(100,450,100,60,0.7,-0.35,"heronew.png",'image') ;
+   var c2=new Ball(1000,280,70,40,-1,0,"monster.gif",'image');
+   var c3=new Ball(1400,50,70,40,-0.4,0,"monster2.gif",'image');
+   var c4=new Ball(300,-50,70,40,-0.4,0.7,"monster2.gif",'image');
+   var rect1=new Rect(900,50,130,20,0.7,900);
+   var rect2=new Rect(1200,50,130,20,0.7,1200);
+   var rect3=new Rect(1050,90,130,20,0.7,1050);
+   var m=new Ball(200,350,30,20,0,0,'brown','rect');
+   var head=new Ball(200,-50,100,50,-0.4,0,'brown','ball');
+   var text='';
+
+	function animate()
+	{
+		requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth*2,innerHeight);
+        ctx.font='30px Arial';
+        ctx.fillText(text,400,200);
+        c1.update();
+        c2.update();
+        c3.update();
+        c4.update();
+        c5.update();
+        if(c5.x<=-500)
+        {
+        	c5.x=900;c5.y=-40;
+        }
+        m.update();
+         if(head.y>=400)
+        {
+        	head.dy=0;
+        }
+        head.update();
+        if(c4.y>=400)
+        {
+        	c4.dx=0.3;
+        	c4.dy=0;
+        }
+        if(c4.y>=400 && c4.x>=250)
+        {
+        	c4.dy=-0.3;
+        }
+        if(c4.x>=400)
+        {
+        	c4.dx=0;c4.dy=0;
+        }
+        if(c1.x>=800)
+        {
+        	c1.dy=-0.26;
+        }
+        if(c2.x<=600)
+        {
+        	c2.dy=0.2;
+        }
+        if(c3.x<=1100)
+        {
+        	c3.dx=0;
+        }
+        rect1.update();rect2.update();rect3.update();
+        if(c1.y<=m.y && c1.x<=m.x)
+       {
+       	m.w=0;
+       	head.dy=2;
+       }
+        if(getDistance(c1.x,c2.x,c1.y,c2.y)<=70 || getDistance(c1.x,c3.x,c1.y,c3.y)<=50 || getDistance(c1.x,c4.x,c1.y,c4.y)<=50)
+        {
+        	c2.dx=0;c2.dy=0;
+        	c3.dy=0;c3.dx=0;
+        	c1.dx=0;c1.dy=0;
+        	c4.dx=0;c4.dy=0;
+        	rect1.dx=0;rect2.dx=0;rect3.dx=0;
+        	text='SORRY!! REFRESH';
+        }
+        if(c1.x>=rect1.x && c1.x<=rect1.x+130)
+        {
+        	c1.dx=0;c1.dy=0;rect1.dx=0;
+        }
+        if(c1.x>=rect2.x && c1.x<=rect2.x+130)
+        {
+        	c1.dx=0;c1.dy=0;rect2.dx=0;
+        }
+         if(c1.x>=rect3.x && c1.x<=rect3.x+130)
+        {
+        	c1.dx=0;c1.dy=0;rect3.dx=0;
+        }
+    }
+
+    window.addEventListener('keydown',
+    	function(event){
+
+    		if(event.keyCode=='38')
+    		{
+localStorage.setItem('i',Number(localStorage.getItem('i'))+1);
+                if(Number(localStorage.getItem('i'))<=3)
+    			{c1.y-=100;
+    			c1.x+=20;
+    		}}
+    	});
+     window.addEventListener('keyup',
+    	function(event){
+    		if(event.keyCode=='38')
+    		{
+    			localStorage.setItem('j',Number(localStorage.getItem('j'))+1);
+                if(Number(localStorage.getItem('j'))<=3)
+    			{c1.y+=70;
+    			c1.x+=20;
+    		}}
+    	});
+
+animate();
+
+
+</script>
+</html>
