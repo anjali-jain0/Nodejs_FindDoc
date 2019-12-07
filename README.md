@@ -22,7 +22,7 @@ FindDoc is a web app help you locate the best doctor in your location. You can s
 * Index.js should open up on your default browser, if not, go to localhost:8080
 
 ## Screenshots
-     
+<img src="screenshots/finddoc-1.png" width="200px" height="100px" /> <img src="screenshots/finddoc-2.png" width="200px" height="100px" /> <img src="screenshots/finddoc-3.png" width="200px" height="100px" /> <img src="screenshots/finddoc-4.png" width="200px" height="100px" /> <img src="screenshots/finddoc-5.png" width="200px" height="100px" /> <img src="screenshots/finddoc-6.png" width="200px" height="100px" />    
 
 ## Technologies Used
 * HTML/CSS
