@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="/images/doctor2.css" rel="stylesheet" type="text/css" />
+<link href="/images/doctorcomplexform.css" rel="stylesheet" type="text/css" />
+<link href="/images/project5style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+  <a class="navbar-brand" href="/">FindDoc</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/browse">Browse Doctors</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/records">View Medical Records</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tests">Book Tests</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/adddoctors">Add Doctors</a>
+          <a class="dropdown-item" href="/addcategory">Add Category</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br><br>
+<h3 class="chead">Categories</h3>
+<br>
+<% for(var j=0;j<categories.length;j++){ %>
+	<span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
+<% } %>
+<br><br>
+<h1 class="head">FindaDoc</h1>
+<h3 class="head">Search for local doctors</h3>
+<br><br>
+<% if(typeof msgs != 'undefined') {
+if(msgs.length > 0) { 
+for(var i=0;i<msgs.length;i++) { %>
+<div class="alert alert-warning alert-dismissible fade show" role="a lert">
+<%= msgs[i].msg %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<% }} }%>
+
+<br><br>
+<div class="card text-center">
+  <div class="card-header">
+    Details
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Lab: <%= lab.labname %></h5>
+    <p class="card-text">Address: <%= lab.address %></p>
+  </div>
+</div>
+<br>
+
+<h3 class='nhead'>Add patient details</h3>
+<form method="post" action='/testfinal'>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="name"> Patient's Name </label>
+      <input type="text" class="form-control" name='pname' id="name" placeholder="Patient's Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="mobileno">Patient's mobile</label>
+      <input type="text" class="form-control" name='pnumber' id="mobilno" placeholder="Mobile Number">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name='pemail' id="email" placeholder="Email Id ">
+  </div>
+  <div class="form-group">
+    <label for="address">Patient's Address</label>
+    <input type="text" class="form-control" id="address" name='paddress' placeholder="Apartment, Locality , Sector">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="age">Age</label>
+      <input type="text" class="form-control" name='page' id="age">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="date">Enter required date for test</label>
+        <input type="text" class="form-control" name='pdate' id="date">
+      </div>
+  </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="time">Select a time slot</label>
+      <select id="time" name='ptime' class="form-control">
+        <option value="06:30-0:700AM">06:30-0:700AM</option>
+        <option value="07:00-07:30AM">07:00-07:30AM</option>
+        <option value="09:00-09:30AM">09:00-09:30AM</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+     <label for="gender">Gender</label>
+  <input type="radio" name="pgender" valu="Male" checked>Male
+  <input type="radio" name="pgender" valu="Female" checked>Female
+  <input type="radio" name="pgender" valu="Other" checked>Other
+    </div></div>
+
+  <button type="submit" class="btn btn-info button">BOOK</button>
+  <br><br><br>
+</form>
+
+</body>
+</html>
