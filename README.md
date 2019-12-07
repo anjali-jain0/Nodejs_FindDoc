@@ -1,5 +1,5 @@
 # Doctor Finder
-<img src="./screenshots/finddoc.gif" width="600px" height="400px" />
+<img src="screenshots/finddoc.gif" width="600px" height="400px" />
 
 Web App that allows users to serch for doctors by their location or their condition
 
