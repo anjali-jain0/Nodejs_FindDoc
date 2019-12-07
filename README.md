@@ -16,7 +16,7 @@ FindDoc is a web app help you locate the best doctor in your location. You can s
 
 
 ## Setup/Installation Requirements
-* Download or clone git repo at
+* Download or clone git repo at https://github.com/anjali-jain0/Nodejs_FindDoc.git
 * Run npm install
 * Run node index.js
 * Index.js should open up on your default browser, if not, go to localhost:8080
